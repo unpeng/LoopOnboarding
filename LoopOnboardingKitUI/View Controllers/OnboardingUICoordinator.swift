@@ -45,7 +45,7 @@ enum OnboardingScreen: CaseIterable {
     }
 }
 
-class OnboardingUICoordinator: UINavigationController, OnboardingNotifying, CGMManagerCreateNotifying, CGMManagerOnboardNotifying, PumpManagerCreateNotifying, PumpManagerOnboardNotifying, ServiceCreateNotifying, ServiceOnboardNotifying, CompletionNotifying {
+class OnboardingUICoordinator: UINavigationController, OnboardingViewController {
     public weak var onboardingDelegate: OnboardingDelegate?
     public weak var cgmManagerCreateDelegate: CGMManagerCreateDelegate?
     public weak var cgmManagerOnboardDelegate: CGMManagerOnboardDelegate?
@@ -56,10 +56,10 @@ class OnboardingUICoordinator: UINavigationController, OnboardingNotifying, CGMM
     public weak var completionDelegate: CompletionDelegate?
 
     private let initialTherapySettings: TherapySettings
-    private let preferredGlucoseUnit: HKUnit
     private let cgmManagerProvider: CGMManagerProvider
     private let pumpManagerProvider: PumpManagerProvider
     private let serviceProvider: ServiceProvider
+    private var preferredGlucoseUnit: HKUnit
     private let colorPalette: LoopUIColorPalette
 
     private var screenStack = [OnboardingScreen]()
@@ -73,12 +73,12 @@ class OnboardingUICoordinator: UINavigationController, OnboardingNotifying, CGMM
 
     private static let serviceIdentifier = "NightscoutService"
 
-    init(initialTherapySettings: TherapySettings, preferredGlucoseUnit: HKUnit, cgmManagerProvider: CGMManagerProvider, pumpManagerProvider: PumpManagerProvider, serviceProvider: ServiceProvider, colorPalette: LoopUIColorPalette) {
+    init(initialTherapySettings: TherapySettings, cgmManagerProvider: CGMManagerProvider, pumpManagerProvider: PumpManagerProvider, serviceProvider: ServiceProvider, preferredGlucoseUnit: HKUnit, colorPalette: LoopUIColorPalette) {
         self.initialTherapySettings = initialTherapySettings
-        self.preferredGlucoseUnit = preferredGlucoseUnit
         self.cgmManagerProvider = cgmManagerProvider
         self.pumpManagerProvider = pumpManagerProvider
         self.serviceProvider = serviceProvider
+        self.preferredGlucoseUnit = preferredGlucoseUnit
         self.colorPalette = colorPalette
         self.service = serviceProvider.activeServices.first(where: { $0.serviceIdentifier == OnboardingUICoordinator.serviceIdentifier })
 
@@ -360,6 +360,11 @@ class OnboardingUICoordinator: UINavigationController, OnboardingNotifying, CGMM
         ) { [weak self] _, _ in
             self?.stepFinished()
         }
+    }
+
+    // MARK: - PreferredGlucoseUnitObserver
+    func preferredGlucoseUnitDidChange(to preferredGlucoseUnit: HKUnit) {
+        self.preferredGlucoseUnit = preferredGlucoseUnit
     }
 }
 

@@ -19,7 +19,7 @@ public final class LoopOnboardingUI: OnboardingUI {
         return LoopOnboardingUI()
     }
 
-    public func onboardingViewController(preferredGlucoseUnit: HKUnit, cgmManagerProvider: CGMManagerProvider, pumpManagerProvider: PumpManagerProvider, serviceProvider: ServiceProvider, colorPalette: LoopUIColorPalette) -> (UIViewController & OnboardingViewController) {
-        return OnboardingUICoordinator(initialTherapySettings: TherapySettings(), preferredGlucoseUnit: preferredGlucoseUnit, cgmManagerProvider: cgmManagerProvider, pumpManagerProvider: pumpManagerProvider, serviceProvider: serviceProvider, colorPalette: colorPalette)
+    public func onboardingViewController(cgmManagerProvider: CGMManagerProvider, pumpManagerProvider: PumpManagerProvider, serviceProvider: ServiceProvider, preferredGlucoseUnit: HKUnit, colorPalette: LoopUIColorPalette) -> (UIViewController & OnboardingViewController) {
+        return OnboardingUICoordinator(initialTherapySettings: TherapySettings(), cgmManagerProvider: cgmManagerProvider, pumpManagerProvider: pumpManagerProvider, serviceProvider: serviceProvider, preferredGlucoseUnit: preferredGlucoseUnit, colorPalette: colorPalette)
     }
 }

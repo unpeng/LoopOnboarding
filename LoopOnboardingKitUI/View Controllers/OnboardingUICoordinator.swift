@@ -55,10 +55,9 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
     public weak var serviceOnboardDelegate: ServiceOnboardDelegate?
     public weak var completionDelegate: CompletionDelegate?
 
+    private let onboarding: LoopOnboardingUI
+    private let onboardingProvider: OnboardingProvider
     private let initialTherapySettings: TherapySettings
-    private let cgmManagerProvider: CGMManagerProvider
-    private let pumpManagerProvider: PumpManagerProvider
-    private let serviceProvider: ServiceProvider
     private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
     private let colorPalette: LoopUIColorPalette
 
@@ -73,14 +72,13 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
 
     private static let serviceIdentifier = "NightscoutService"
 
-    init(initialTherapySettings: TherapySettings, cgmManagerProvider: CGMManagerProvider, pumpManagerProvider: PumpManagerProvider, serviceProvider: ServiceProvider, displayGlucoseUnitObservable: DisplayGlucoseUnitObservable, colorPalette: LoopUIColorPalette) {
+    init(onboarding: LoopOnboardingUI, onboardingProvider: OnboardingProvider, initialTherapySettings: TherapySettings, displayGlucoseUnitObservable: DisplayGlucoseUnitObservable, colorPalette: LoopUIColorPalette) {
+        self.onboarding = onboarding
+        self.onboardingProvider = onboardingProvider
         self.initialTherapySettings = initialTherapySettings
-        self.cgmManagerProvider = cgmManagerProvider
-        self.pumpManagerProvider = pumpManagerProvider
-        self.serviceProvider = serviceProvider
         self.displayGlucoseUnitObservable = displayGlucoseUnitObservable
         self.colorPalette = colorPalette
-        self.service = serviceProvider.activeServices.first(where: { $0.serviceIdentifier == OnboardingUICoordinator.serviceIdentifier })
+        self.service = onboardingProvider.activeServices.first(where: { $0.serviceIdentifier == OnboardingUICoordinator.serviceIdentifier })
 
         super.init(navigationBarClass: UINavigationBar.self, toolbarClass: UIToolbar.self)
     }
@@ -114,9 +112,6 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             let hostedView = hostingController(rootView: view)
             return hostedView
         case .nightscoutChooser:
-            if service?.isOnboarded == true {
-                return viewControllerForScreen(.suspendThresholdInfo)
-            }
             let view = OnboardingChooserView(setupWithNightscout: setupWithNightscout, setupWithoutNightscout: setupWithoutNightscout)
             let hostedView = hostingController(rootView: view)
             return hostedView
@@ -253,9 +248,8 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             let nextButtonString = LocalizedString("Save Settings", comment: "Therapy settings save button title")
             let actionButton = TherapySettingsView.ActionButton(localizedString: nextButtonString) { [weak self] in
                 if let self = self {
-                    if let therapySettings = self.therapySettingsViewModel?.therapySettings {
-                        self.onboardingDelegate?.onboardingNotifying(hasNewTherapySettings: therapySettings)
-                    }
+                    self.onboarding.therapySettings = self.therapySettingsViewModel?.therapySettings
+                    self.onboarding.isOnboarded = true
                     self.stepFinished()
                 }
             }
@@ -272,7 +266,17 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
     }
 
     private func stepFinished() {
-        if let nextScreen = currentScreen.next() {
+        var nextScreen: OnboardingScreen?
+
+        nextScreen = currentScreen.next()
+
+        // If the next screen is the Nightscout service chooser, but the Nightscout service
+        // is already created and onboarded, then simply skip to the next screen
+        if nextScreen == .nightscoutChooser && service?.isOnboarded == true {
+            nextScreen = nextScreen?.next()
+        }
+
+        if let nextScreen = nextScreen {
             navigate(to: nextScreen)
         } else {
             completionDelegate?.completionNotifyingDidComplete(self)
@@ -306,7 +310,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
                 fatalError("Failure to setup service (without UI) with identifier: \(service.serviceIdentifier)")
             }
         } else {
-            switch serviceProvider.setupService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
+            switch onboardingProvider.setupService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
             case .failure(let error):
                 log.debug("Failure to create and setup service with identifier '%{public}@': %{public}@", OnboardingUICoordinator.serviceIdentifier, String(describing: error))
             case .success(let success):

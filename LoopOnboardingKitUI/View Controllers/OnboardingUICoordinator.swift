@@ -140,7 +140,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.glucoseTargetRange.title
             return hostedView
         case .correctionRangeEditor:
-            let view = CorrectionRangeScheduleEditor(viewModel: therapySettingsViewModel!)
+            let view = CorrectionRangeScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -154,7 +154,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.preMealCorrectionRangeOverride.smallTitle
             return hostedView
         case .correctionRangePreMealOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(viewModel: therapySettingsViewModel!, preset: .preMeal)
+            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -168,7 +168,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.workoutCorrectionRangeOverride.smallTitle
             return hostedView
         case .correctionRangeWorkoutOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(viewModel: therapySettingsViewModel!, preset: .workout)
+            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -182,7 +182,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.basalRate.title
             return hostedView
         case .basalRatesEditor:
-            let view = BasalRateScheduleEditor(viewModel: therapySettingsViewModel!)
+            let view = BasalRateScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -196,7 +196,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.deliveryLimits.title
             return hostedView
         case .deliveryLimitsEditor:
-            let view = DeliveryLimitsEditor(viewModel: therapySettingsViewModel!)
+            let view = DeliveryLimitsEditor(therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -210,7 +210,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.insulinModel.title
             return hostedView
         case .insulinModelEditor:
-            let view = InsulinModelSelection(viewModel: therapySettingsViewModel!).environment(\.appName, Bundle.main.bundleDisplayName)
+            let view = InsulinModelSelection(therapySettingsViewModel: therapySettingsViewModel!).environment(\.appName, Bundle.main.bundleDisplayName)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
             hostedView.title = TherapySetting.insulinModel.title
@@ -225,7 +225,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.carbRatio.title
             return hostedView
         case .carbRatioEditor:
-            let view = CarbRatioScheduleEditor(viewModel: therapySettingsViewModel!)
+            let view = CarbRatioScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -239,7 +239,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
             hostedView.title = TherapySetting.insulinSensitivity.title
             return hostedView
         case .insulinSensitivityEditor:
-            let view = InsulinSensitivityScheduleEditor(viewModel: therapySettingsViewModel!)
+            let view = InsulinSensitivityScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView

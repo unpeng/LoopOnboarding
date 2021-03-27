@@ -15,10 +15,10 @@ struct OnboardingChooserView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            Text("Nightscout")
+            Text(LocalizedString("Nightscout", comment: "Title on OnboardingChooserView"))
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-            Text("Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later.")
+            Text(LocalizedString("Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later.", comment: "Descriptive text on OnboardingChooserView"))
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(.secondary)
             Spacer()

@@ -34,6 +34,20 @@
                ReferencedContainer = "container:LoopOnboarding.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A936A8F625BC99470085119C"
+               BuildableName = "LoopOnboardingPlugin.framework"
+               BlueprintName = "LoopOnboardingPlugin"
+               ReferencedContainer = "container:LoopOnboarding.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

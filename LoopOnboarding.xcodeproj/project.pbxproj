@@ -120,7 +120,7 @@
 		A936A8DA25BC99320085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A936A8DF25BC99330085119C /* LoopOnboardingKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopOnboardingKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8E625BC99330085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingPlugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		A936A8F725BC99470085119C /* LoopOnboardingPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingPlugin.h; sourceTree = "<group>"; };
 		A936A8FA25BC99470085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B3CE3A25BCBABB002D9E92 /* OnboardingUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUICoordinator.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				A936A8C125BC99240085119C /* LoopOnboardingKitTests.xctest */,
 				A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */,
 				A936A8DF25BC99330085119C /* LoopOnboardingKitUITests.xctest */,
-				A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */,
+				A936A8F725BC99470085119C /* LoopOnboardingPlugin.framework */,
 				C1EC934C261A874900002B1A /* ExampleApp.app */,
 			);
 			name = Products;
@@ -470,7 +470,7 @@
 			);
 			name = LoopOnboardingPlugin;
 			productName = LoopOnboardingPlugin;
-			productReference = A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */;
+			productReference = A936A8F725BC99470085119C /* LoopOnboardingPlugin.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C1EC934B261A874900002B1A /* ExampleApp */ = {
@@ -1133,7 +1133,6 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
-				WRAPPER_EXTENSION = loopplugin;
 			};
 			name = Debug;
 		};
@@ -1160,7 +1159,6 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
-				WRAPPER_EXTENSION = loopplugin;
 			};
 			name = Release;
 		};

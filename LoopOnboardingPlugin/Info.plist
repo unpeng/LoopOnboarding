@@ -20,5 +20,11 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>com.loopkit.Loop.OnboardingIdentifier</key>
 	<string>LoopOnboarding</string>
+	<key>PluginDependencies</key>
+	<array>
+		<string>Crypto</string>
+		<string>LoopOnboardingKit</string>
+		<string>LoopOnboardingKitUI</string>
+	</array>
 </dict>
 </plist>

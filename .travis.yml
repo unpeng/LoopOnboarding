@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode12.3
+
+script:
+   - set -o pipefail && xcodebuild -scheme LoopOnboarding-Package -destination 'name=iPhone 8' | xcpretty 

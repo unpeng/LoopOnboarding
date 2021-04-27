@@ -8,7 +8,6 @@
 
 import os.log
 import LoopKitUI
-import LoopOnboardingKit
 import LoopOnboardingKitUI
 
 class LoopOnboardingPlugin: NSObject, OnboardingUIPlugin {

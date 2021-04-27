@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LoopKit",
+        "repositoryURL": "https://github.com/LoopKit/LoopKit.git",
+        "state": {
+          "branch": "package-experiment2",
+          "revision": "eacc0e46110bfedfda0ea46de24656cce08432fe",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftCharts",
+        "repositoryURL": "https://github.com/ps2/SwiftCharts.git",
+        "state": {
+          "branch": "uikit-explicit",
+          "revision": "d4835fde68557524dcb08aad6079df2a5103c860",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

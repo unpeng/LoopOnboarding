@@ -10,7 +10,6 @@ import SwiftUI
 import HealthKit
 import LoopKit
 import LoopKitUI
-import LoopOnboardingKit
 
 public final class LoopOnboardingUI: OnboardingUI {
     public static func createOnboarding() -> OnboardingUI {

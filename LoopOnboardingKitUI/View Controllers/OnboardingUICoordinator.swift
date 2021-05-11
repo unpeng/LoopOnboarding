@@ -123,7 +123,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.suspendThreshold.title
             return hostedView
         case .suspendThresholdEditor:
-            let view = SuspendThresholdEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = SuspendThresholdEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -137,7 +137,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.glucoseTargetRange.title
             return hostedView
         case .correctionRangeEditor:
-            let view = CorrectionRangeScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = CorrectionRangeScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -151,7 +151,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.preMealCorrectionRangeOverride.smallTitle
             return hostedView
         case .correctionRangePreMealOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
+            let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -165,7 +165,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.workoutCorrectionRangeOverride.smallTitle
             return hostedView
         case .correctionRangeWorkoutOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
+            let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -179,7 +179,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.basalRate.title
             return hostedView
         case .basalRatesEditor:
-            let view = BasalRateScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = BasalRateScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -193,7 +193,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.deliveryLimits.title
             return hostedView
         case .deliveryLimitsEditor:
-            let view = DeliveryLimitsEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = DeliveryLimitsEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -207,7 +207,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.insulinModel.title
             return hostedView
         case .insulinModelEditor:
-            let view = InsulinModelSelection(therapySettingsViewModel: therapySettingsViewModel!).environment(\.appName, Bundle.main.bundleDisplayName)
+            let view = InsulinModelSelection(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, chartColors: colorPalette.chartColorPalette).environment(\.appName, Bundle.main.bundleDisplayName)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
             hostedView.title = TherapySetting.insulinModel.title
@@ -222,7 +222,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.carbRatio.title
             return hostedView
         case .carbRatioEditor:
-            let view = CarbRatioScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = CarbRatioScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -236,7 +236,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             hostedView.title = TherapySetting.insulinSensitivity.title
             return hostedView
         case .insulinSensitivityEditor:
-            let view = InsulinSensitivityScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
+            let view = InsulinSensitivityScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
             return hostedView
@@ -250,7 +250,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                     self.stepFinished()
                 }
             }
-            let view = TherapySettingsView(viewModel: therapySettingsViewModel!, actionButton: actionButton)
+            let view = TherapySettingsView(mode: .acceptanceFlow, viewModel: therapySettingsViewModel!, actionButton: actionButton)
             let hostedView = hostingController(rootView: view)
             hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
             hostedView.title = LocalizedString("Therapy Settings", comment: "Navigation view title")
@@ -330,7 +330,6 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         let supportedInsulinModelSettings = SupportedInsulinModelSettings(fiaspModelEnabled: true, walshModelEnabled: false)
 
         return TherapySettingsViewModel(
-            mode: .acceptanceFlow,
             therapySettings: therapySettings,
             supportedInsulinModelSettings: supportedInsulinModelSettings,
             pumpSupportedIncrements: { pumpSupportedIncrements },
@@ -340,8 +339,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                     assertionFailure()
                 }
             },
-            prescription: nil,
-            chartColors: colorPalette.chartColorPalette
+            prescription: nil
         ) { [weak self] _, _ in
             self?.stepFinished()
         }

@@ -103,143 +103,66 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     private func viewControllerForScreen(_ screen: OnboardingScreen) -> UIViewController {
         switch screen {
         case .welcome:
-            let view = WelcomeView { [weak self] in
-                self?.stepFinished()
-            }
-            let hostedView = hostingController(rootView: view)
-            return hostedView
+            let view = WelcomeView(didContinue: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .nightscoutChooser:
             let view = OnboardingChooserView(setupWithNightscout: setupWithNightscout, setupWithoutNightscout: setupWithoutNightscout)
-            let hostedView = hostingController(rootView: view)
-            return hostedView
+            return hostingController(rootView: view)
         case .suspendThresholdInfo:
             therapySettingsViewModel = constructTherapySettingsViewModel(therapySettings: initialTherapySettings)
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = SuspendThresholdInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.suspendThreshold.title
-            return hostedView
+            let view = SuspendThresholdInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .suspendThresholdEditor:
             let view = SuspendThresholdEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .correctionRangeInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.glucoseTargetRange.title
-            return hostedView
+            let view = CorrectionRangeInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangeEditor:
             let view = CorrectionRangeScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .correctionRangePreMealOverrideInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeOverrideInformationView(preset: .preMeal, onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.preMealCorrectionRangeOverride.smallTitle
-            return hostedView
+            let view = CorrectionRangeOverrideInformationView(preset: .preMeal, onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangePreMealOverrideEditor:
             let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .correctionRangeWorkoutOverrideInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeOverrideInformationView(preset: .workout, onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.workoutCorrectionRangeOverride.smallTitle
-            return hostedView
+            let view = CorrectionRangeOverrideInformationView(preset: .workout, onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangeWorkoutOverrideEditor:
             let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .basalRatesInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = BasalRatesInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.basalRate.title
-            return hostedView
+            let view = BasalRatesInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .basalRatesEditor:
             let view = BasalRateScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .deliveryLimitsInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = DeliveryLimitsInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.deliveryLimits.title
-            return hostedView
+            let view = DeliveryLimitsInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .deliveryLimitsEditor:
             let view = DeliveryLimitsEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .insulinModelInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = InsulinModelInformationView(onExit: onExit).environment(\.appName, Bundle.main.bundleDisplayName)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinModel.title
-            return hostedView
+            let view = InsulinModelInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .insulinModelEditor:
-            let view = InsulinModelSelection(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, chartColors: colorPalette.chartColorPalette).environment(\.appName, Bundle.main.bundleDisplayName)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinModel.title
-            return hostedView
+            let view = InsulinModelSelection(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, chartColors: colorPalette.chartColorPalette)
+            return hostingController(rootView: view)
         case .carbRatioInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CarbRatioInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.carbRatio.title
-            return hostedView
+            let view = CarbRatioInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .carbRatioEditor:
             let view = CarbRatioScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .insulinSensitivityInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = InsulinSensitivityInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinSensitivity.title
-            return hostedView
+            let view = InsulinSensitivityInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .insulinSensitivityEditor:
             let view = InsulinSensitivityScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            return hostingController(rootView: view)
         case .therapySettingsRecap:
             therapySettingsViewModel?.prescription = nil
             let nextButtonString = LocalizedString("Save Settings", comment: "Therapy settings save button title")
@@ -251,15 +174,18 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 }
             }
             let view = TherapySettingsView(mode: .acceptanceFlow, viewModel: therapySettingsViewModel!, actionButton: actionButton)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = LocalizedString("Therapy Settings", comment: "Navigation view title")
-            return hostedView
+            return hostingController(rootView: view)
         }
     }
 
     private func hostingController<Content: View>(rootView: Content) -> DismissibleHostingController {
-        return DismissibleHostingController(rootView: rootView.environmentObject(displayGlucoseUnitObservable), colorPalette: colorPalette)
+        let rootView = rootView
+            .environmentObject(displayGlucoseUnitObservable)
+            .environment(\.appName, Bundle.main.bundleDisplayName)
+        let hostingController = DismissibleHostingController(rootView: rootView, colorPalette: colorPalette)
+        hostingController.navigationItem.largeTitleDisplayMode = .never
+        hostingController.title = nil
+        return hostingController
     }
 
     private func stepFinished() {

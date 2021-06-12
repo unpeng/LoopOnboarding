@@ -45,14 +45,11 @@ enum OnboardingScreen: CaseIterable {
     }
 }
 
-class OnboardingUICoordinator: UINavigationController, OnboardingViewController {
+class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, PumpManagerOnboarding, ServiceOnboarding, CompletionNotifying {
     public weak var onboardingDelegate: OnboardingDelegate?
-    public weak var cgmManagerCreateDelegate: CGMManagerCreateDelegate?
-    public weak var cgmManagerOnboardDelegate: CGMManagerOnboardDelegate?
-    public weak var pumpManagerCreateDelegate: PumpManagerCreateDelegate?
-    public weak var pumpManagerOnboardDelegate: PumpManagerOnboardDelegate?
-    public weak var serviceCreateDelegate: ServiceCreateDelegate?
-    public weak var serviceOnboardDelegate: ServiceOnboardDelegate?
+    public weak var cgmManagerOnboardingDelegate: CGMManagerOnboardingDelegate?
+    public weak var pumpManagerOnboardingDelegate: PumpManagerOnboardingDelegate?
+    public weak var serviceOnboardingDelegate: ServiceOnboardingDelegate?
     public weak var completionDelegate: CompletionDelegate?
 
     private let onboarding: LoopOnboardingUI
@@ -106,143 +103,66 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
     private func viewControllerForScreen(_ screen: OnboardingScreen) -> UIViewController {
         switch screen {
         case .welcome:
-            let view = WelcomeView { [weak self] in
-                self?.stepFinished()
-            }
-            let hostedView = hostingController(rootView: view)
-            return hostedView
+            let view = WelcomeView(didContinue: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .nightscoutChooser:
             let view = OnboardingChooserView(setupWithNightscout: setupWithNightscout, setupWithoutNightscout: setupWithoutNightscout)
-            let hostedView = hostingController(rootView: view)
-            return hostedView
+            return hostingController(rootView: view)
         case .suspendThresholdInfo:
             therapySettingsViewModel = constructTherapySettingsViewModel(therapySettings: initialTherapySettings)
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = SuspendThresholdInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.suspendThreshold.title
-            return hostedView
+            let view = SuspendThresholdInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .suspendThresholdEditor:
-            let view = SuspendThresholdEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = SuspendThresholdEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .correctionRangeInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.glucoseTargetRange.title
-            return hostedView
+            let view = CorrectionRangeInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangeEditor:
-            let view = CorrectionRangeScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = CorrectionRangeScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .correctionRangePreMealOverrideInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeOverrideInformationView(preset: .preMeal, onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.preMealCorrectionRangeOverride.smallTitle
-            return hostedView
+            let view = CorrectionRangeOverrideInformationView(preset: .preMeal, onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangePreMealOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
+            return hostingController(rootView: view)
         case .correctionRangeWorkoutOverrideInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CorrectionRangeOverrideInformationView(preset: .workout, onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.workoutCorrectionRangeOverride.smallTitle
-            return hostedView
+            let view = CorrectionRangeOverrideInformationView(preset: .workout, onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .correctionRangeWorkoutOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
+            return hostingController(rootView: view)
         case .basalRatesInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = BasalRatesInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.basalRate.title
-            return hostedView
+            let view = BasalRatesInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .basalRatesEditor:
-            let view = BasalRateScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = BasalRateScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .deliveryLimitsInfo:
-            let exiting: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = DeliveryLimitsInformationView(onExit: exiting)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.deliveryLimits.title
-            return hostedView
+            let view = DeliveryLimitsInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .deliveryLimitsEditor:
-            let view = DeliveryLimitsEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = DeliveryLimitsEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .insulinModelInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = InsulinModelInformationView(onExit: onExit).environment(\.appName, Bundle.main.bundleDisplayName)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinModel.title
-            return hostedView
+            let view = InsulinModelInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .insulinModelEditor:
-            let view = InsulinModelSelection(therapySettingsViewModel: therapySettingsViewModel!).environment(\.appName, Bundle.main.bundleDisplayName)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinModel.title
-            return hostedView
+            let view = InsulinModelSelection(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, chartColors: colorPalette.chartColorPalette)
+            return hostingController(rootView: view)
         case .carbRatioInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = CarbRatioInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.carbRatio.title
-            return hostedView
+            let view = CarbRatioInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .carbRatioEditor:
-            let view = CarbRatioScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = CarbRatioScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .insulinSensitivityInfo:
-            let onExit: (() -> Void) = { [weak self] in
-                self?.stepFinished()
-            }
-            let view = InsulinSensitivityInformationView(onExit: onExit)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = TherapySetting.insulinSensitivity.title
-            return hostedView
+            let view = InsulinSensitivityInformationView(onExit: { [weak self] in self?.stepFinished() })
+            return hostingController(rootView: view)
         case .insulinSensitivityEditor:
-            let view = InsulinSensitivityScheduleEditor(therapySettingsViewModel: therapySettingsViewModel!)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .never // TODO: hack to fix jumping, will be removed once editors have titles
-            return hostedView
+            let view = InsulinSensitivityScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
+            return hostingController(rootView: view)
         case .therapySettingsRecap:
             therapySettingsViewModel?.prescription = nil
             let nextButtonString = LocalizedString("Save Settings", comment: "Therapy settings save button title")
@@ -253,16 +173,19 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
                     self.stepFinished()
                 }
             }
-            let view = TherapySettingsView(viewModel: therapySettingsViewModel!, actionButton: actionButton)
-            let hostedView = hostingController(rootView: view)
-            hostedView.navigationItem.largeTitleDisplayMode = .always // TODO: hack to fix jumping, will be removed once editors have titles
-            hostedView.title = LocalizedString("Therapy Settings", comment: "Navigation view title")
-            return hostedView
+            let view = TherapySettingsView(mode: .acceptanceFlow, viewModel: therapySettingsViewModel!, actionButton: actionButton)
+            return hostingController(rootView: view)
         }
     }
 
     private func hostingController<Content: View>(rootView: Content) -> DismissibleHostingController {
-        return DismissibleHostingController(rootView: rootView.environmentObject(displayGlucoseUnitObservable), colorPalette: colorPalette)
+        let rootView = rootView
+            .environmentObject(displayGlucoseUnitObservable)
+            .environment(\.appName, Bundle.main.bundleDisplayName)
+        let hostingController = DismissibleHostingController(rootView: rootView, colorPalette: colorPalette)
+        hostingController.navigationItem.largeTitleDisplayMode = .never
+        hostingController.title = nil
+        return hostingController
     }
 
     private func stepFinished() {
@@ -298,33 +221,18 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
     }
 
     private func setupWithNightscout() {
-        if let service = service {
-            if service.isOnboarded {
+        switch onboardingProvider.onboardService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
+        case .failure(let error):
+            log.debug("Failure to create and setup service with identifier '%{public}@': %{public}@", OnboardingUICoordinator.serviceIdentifier, String(describing: error))
+        case .success(let success):
+            switch success {
+            case .userInteractionRequired(var setupViewController):
+                setupViewController.serviceOnboardingDelegate = self
+                setupViewController.completionDelegate = self
+                show(setupViewController, sender: self)
+            case .createdAndOnboarded(let service):
+                self.service = service
                 stepFinished()
-            } else if let serviceUI = service as? ServiceUI {
-                var settingsViewController = serviceUI.settingsViewController(colorPalette: colorPalette)
-                settingsViewController.serviceOnboardDelegate = self
-                settingsViewController.completionDelegate = self
-                show(settingsViewController, sender: self)
-            } else {
-                fatalError("Failure to setup service (without UI) with identifier: \(service.serviceIdentifier)")
-            }
-        } else {
-            switch onboardingProvider.setupService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
-            case .failure(let error):
-                log.debug("Failure to create and setup service with identifier '%{public}@': %{public}@", OnboardingUICoordinator.serviceIdentifier, String(describing: error))
-            case .success(let success):
-                switch success {
-                case .userInteractionRequired(var setupViewController):
-                    setupViewController.serviceCreateDelegate = self
-                    setupViewController.serviceOnboardDelegate = self
-                    setupViewController.completionDelegate = self
-                    show(setupViewController, sender: self)
-                case .createdAndOnboarded(let service):
-                    serviceCreateNotifying(didCreateService: service)
-                    serviceOnboardNotifying(didOnboardService: service)
-                    stepFinished()
-                }
             }
         }
     }
@@ -348,7 +256,6 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
         let supportedInsulinModelSettings = SupportedInsulinModelSettings(fiaspModelEnabled: true, walshModelEnabled: false)
 
         return TherapySettingsViewModel(
-            mode: .acceptanceFlow,
             therapySettings: therapySettings,
             supportedInsulinModelSettings: supportedInsulinModelSettings,
             pumpSupportedIncrements: { pumpSupportedIncrements },
@@ -358,8 +265,7 @@ class OnboardingUICoordinator: UINavigationController, OnboardingViewController 
                     assertionFailure()
                 }
             },
-            prescription: nil,
-            chartColors: colorPalette.chartColorPalette
+            prescription: nil
         ) { [weak self] _, _ in
             self?.stepFinished()
         }
@@ -375,40 +281,34 @@ extension OnboardingUICoordinator: UINavigationControllerDelegate {
     }
 }
 
-extension OnboardingUICoordinator: CGMManagerCreateDelegate {
-    func cgmManagerCreateNotifying(didCreateCGMManager cgmManager: CGMManagerUI) {
-        cgmManagerCreateDelegate?.cgmManagerCreateNotifying(didCreateCGMManager: cgmManager)
+extension OnboardingUICoordinator: CGMManagerOnboardingDelegate {
+    func cgmManagerOnboarding(didCreateCGMManager cgmManager: CGMManagerUI) {
+        cgmManagerOnboardingDelegate?.cgmManagerOnboarding(didCreateCGMManager: cgmManager)
+    }
+
+    func cgmManagerOnboarding(didOnboardCGMManager cgmManager: CGMManagerUI) {
+        cgmManagerOnboardingDelegate?.cgmManagerOnboarding(didOnboardCGMManager: cgmManager)
     }
 }
 
-extension OnboardingUICoordinator: CGMManagerOnboardDelegate {
-    func cgmManagerOnboardNotifying(didOnboardCGMManager cgmManager: CGMManagerUI) {
-        cgmManagerOnboardDelegate?.cgmManagerOnboardNotifying(didOnboardCGMManager: cgmManager)
+extension OnboardingUICoordinator: PumpManagerOnboardingDelegate {
+    func pumpManagerOnboarding(didCreatePumpManager pumpManager: PumpManagerUI) {
+        pumpManagerOnboardingDelegate?.pumpManagerOnboarding(didCreatePumpManager: pumpManager)
+    }
+
+    func pumpManagerOnboarding(didOnboardPumpManager pumpManager: PumpManagerUI, withFinalSettings settings: PumpManagerSetupSettings) {
+        pumpManagerOnboardingDelegate?.pumpManagerOnboarding(didOnboardPumpManager: pumpManager, withFinalSettings: settings)
     }
 }
 
-extension OnboardingUICoordinator: PumpManagerCreateDelegate {
-    func pumpManagerCreateNotifying(didCreatePumpManager pumpManager: PumpManagerUI) {
-        pumpManagerCreateDelegate?.pumpManagerCreateNotifying(didCreatePumpManager: pumpManager)
-    }
-}
-
-extension OnboardingUICoordinator: PumpManagerOnboardDelegate {
-    func pumpManagerOnboardNotifying(didOnboardPumpManager pumpManager: PumpManagerUI, withFinalSettings settings: PumpManagerSetupSettings) {
-        pumpManagerOnboardDelegate?.pumpManagerOnboardNotifying(didOnboardPumpManager: pumpManager, withFinalSettings: settings)
-    }
-}
-
-extension OnboardingUICoordinator: ServiceCreateDelegate {
-    func serviceCreateNotifying(didCreateService service: Service) {
+extension OnboardingUICoordinator: ServiceOnboardingDelegate {
+    func serviceOnboarding(didCreateService service: Service) {
         self.service = service
-        serviceCreateDelegate?.serviceCreateNotifying(didCreateService: service)
+        serviceOnboardingDelegate?.serviceOnboarding(didCreateService: service)
     }
-}
 
-extension OnboardingUICoordinator: ServiceOnboardDelegate {
-    func serviceOnboardNotifying(didOnboardService service: Service) {
-        serviceOnboardDelegate?.serviceOnboardNotifying(didOnboardService: service)
+    func serviceOnboarding(didOnboardService service: Service) {
+        serviceOnboardingDelegate?.serviceOnboarding(didOnboardService: service)
     }
 }
 

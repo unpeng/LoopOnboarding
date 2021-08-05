@@ -253,11 +253,9 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             bolusVolumes: supportedBolusVolumes,
             maximumBasalScheduleEntryCount: maximumBasalScheduleEntryCount
         )
-        let supportedInsulinModelSettings = SupportedInsulinModelSettings(fiaspModelEnabled: true, walshModelEnabled: false)
 
         return TherapySettingsViewModel(
             therapySettings: therapySettings,
-            supportedInsulinModelSettings: supportedInsulinModelSettings,
             pumpSupportedIncrements: { pumpSupportedIncrements },
             syncPumpSchedule: {
                 { _, _ in

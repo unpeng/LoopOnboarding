@@ -1,1 +1,2 @@
-github "tidepool-org/LoopKit" "29550a9cb20ec5e726c386ad1c9fddaa9e8a1a16"
+github "LoopKit/LoopKit" "7cc4d031b8d49837f82af91538a397a3e8dea02d"
+github "i-schuetz/SwiftCharts" "0.6.5"

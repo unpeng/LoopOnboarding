@@ -267,10 +267,13 @@ extension OnboardingUICoordinator: TherapySettingsViewModelDelegate {
         let maximumBasalScheduleEntryCount = 24
 
         let supportedBolusVolumes = (1...600).map { Double($0) / Double(1/0.05) }
+
+        let supportedMaximumBolusVolumes = (1...600).map { Double($0) / Double(1/0.05) }
         
         return PumpSupportedIncrements(
             basalRates: supportedBasalRates,
             bolusVolumes: supportedBolusVolumes,
+            maximumBolusVolumes: supportedMaximumBolusVolumes,
             maximumBasalScheduleEntryCount: maximumBasalScheduleEntryCount
         )
     }

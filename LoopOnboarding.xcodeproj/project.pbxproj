@@ -546,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/copy-frameworks.sh\n";
+			shellScript = "\"${SRCROOT}/Scripts/copy-frameworks.sh\"\n";
 		};
 		A9B3CDF625BCB668002D9E92 /* Copy Frameworks with Carthage */ = {
 			isa = PBXShellScriptBuildPhase;

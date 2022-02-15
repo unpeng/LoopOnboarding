@@ -22,8 +22,6 @@ enum OnboardingScreen: CaseIterable {
     case correctionRangeEditor
     case correctionRangePreMealOverrideInfo
     case correctionRangePreMealOverrideEditor
-    case correctionRangeWorkoutOverrideInfo
-    case correctionRangeWorkoutOverrideEditor
     case basalRatesInfo
     case basalRatesEditor
     case deliveryLimitsInfo
@@ -126,12 +124,6 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             return hostingController(rootView: view)
         case .correctionRangePreMealOverrideEditor:
             let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .preMeal)
-            return hostingController(rootView: view)
-        case .correctionRangeWorkoutOverrideInfo:
-            let view = CorrectionRangeOverrideInformationView(preset: .workout, onExit: { [weak self] in self?.stepFinished() })
-            return hostingController(rootView: view)
-        case .correctionRangeWorkoutOverrideEditor:
-            let view = CorrectionRangeOverridesEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, preset: .workout)
             return hostingController(rootView: view)
         case .basalRatesInfo:
             let view = BasalRatesInformationView(onExit: { [weak self] in self?.stepFinished() })
@@ -242,7 +234,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     }
 
     private func constructTherapySettingsViewModel(therapySettings: TherapySettings) -> TherapySettingsViewModel? {
-        return TherapySettingsViewModel(therapySettings: therapySettings, delegate: self)
+        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, prescription: nil, delegate: self)
     }
 }
 

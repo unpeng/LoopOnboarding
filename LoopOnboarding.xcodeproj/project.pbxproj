@@ -47,6 +47,7 @@
 		A9CE7FEB25BCABE800C04F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */; };
 		A9CE7FF325BCAC1800C04F9B /* LoopOnboardingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */; };
 		A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; };
+		C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		A9CE7FE225BCABD500C04F9B /* LoopOnboardingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingUI.swift; sourceTree = "<group>"; };
 		A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingPlugin.swift; sourceTree = "<group>"; };
+		C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			children = (
 				A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */,
 				A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */,
+				C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */,
 				A9B3CE8125BCBD85002D9E92 /* Image.swift in Sources */,
 				A9B3CE8F25BCBE7D002D9E92 /* Bundle.swift in Sources */,
 				A9B3CE3B25BCBABB002D9E92 /* OnboardingUICoordinator.swift in Sources */,

@@ -12,10 +12,12 @@ import HealthKit
 import SwiftUI
 import LoopKit
 import LoopKitUI
+import NightscoutServiceKit
 
 enum OnboardingScreen: CaseIterable {
     case welcome
     case nightscoutChooser
+    case importSettings
     case suspendThresholdInfo
     case suspendThresholdEditor
     case correctionRangeInfo
@@ -52,7 +54,15 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
     private let onboarding: LoopOnboardingUI
     private let onboardingProvider: OnboardingProvider
+
     private let initialTherapySettings: TherapySettings
+
+    private var nightscoutOnboardingViewController: UIViewController?
+
+    private var importedTherapySettings: TherapySettings?
+    private var importedTherapySettingsDate: Date?
+    private var shouldUseImportedSettings: Bool = false
+
     private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
     private let colorPalette: LoopUIColorPalette
 
@@ -101,13 +111,35 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     private func viewControllerForScreen(_ screen: OnboardingScreen) -> UIViewController {
         switch screen {
         case .welcome:
-            let view = WelcomeView(didContinue: { [weak self] in self?.stepFinished() })
+            let view = WelcomeView(didContinue: { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                if self.service?.isOnboarded == true {
+                    // If the Nightscout service already created and onboarded, then check for available settings import
+                    self.checkForAvailableSettingsImport()
+                } else {
+                    self.stepFinished()
+                }
+            })
             return hostingController(rootView: view)
         case .nightscoutChooser:
             let view = OnboardingChooserView(setupWithNightscout: setupWithNightscout, setupWithoutNightscout: setupWithoutNightscout)
             return hostingController(rootView: view)
+        case .importSettings:
+            let view = ImportSettingsView(settingsDate: importedTherapySettingsDate!) { [weak self] (shouldImport) in
+                self?.shouldUseImportedSettings = shouldImport
+                self?.stepFinished()
+            }
+            return hostingController(rootView: view)
         case .suspendThresholdInfo:
-            therapySettingsViewModel = constructTherapySettingsViewModel(therapySettings: initialTherapySettings)
+            let therapySettings: TherapySettings
+            if let importedTherapySettings = importedTherapySettings, shouldUseImportedSettings {
+                therapySettings = importedTherapySettings
+            } else {
+                therapySettings = initialTherapySettings
+            }
+            therapySettingsViewModel = constructTherapySettingsViewModel(therapySettings: therapySettings)
             let view = SuspendThresholdInformationView(onExit: { [weak self] in self?.stepFinished() })
             return hostingController(rootView: view)
         case .suspendThresholdEditor:
@@ -185,9 +217,8 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
         nextScreen = currentScreen.next()
 
-        // If the next screen is the Nightscout service chooser, but the Nightscout service
-        // is already created and onboarded, then simply skip to the next screen
-        if nextScreen == .nightscoutChooser && service?.isOnboarded == true {
+        if nextScreen == .importSettings && importedTherapySettings == nil {
+            // If the next screen is import settings, but we don't have imported settings, skip it
             nextScreen = nextScreen?.next()
         }
 
@@ -219,12 +250,13 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         case .success(let success):
             switch success {
             case .userInteractionRequired(var setupViewController):
+                nightscoutOnboardingViewController = setupViewController
                 setupViewController.serviceOnboardingDelegate = self
                 setupViewController.completionDelegate = self
                 show(setupViewController, sender: self)
             case .createdAndOnboarded(let service):
                 self.service = service
-                stepFinished()
+                checkForAvailableSettingsImport()
             }
         }
     }
@@ -232,6 +264,28 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     private func setupWithoutNightscout() {
         stepFinished()
     }
+
+    private func checkForAvailableSettingsImport() {
+        if let nightscoutService = service as? NightscoutService {
+            nightscoutService.fetchStoredTherapySettings { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success((let settings, let date)):
+                        self.importedTherapySettings = settings
+                        self.importedTherapySettingsDate = date
+                        self.navigate(to: .importSettings)
+                    case .failure:
+                        // TODO: Show error? Maybe user was expecting import option and wants to know why it didn't show.
+                        self.stepFinished()
+                        break
+                    }
+                }
+            }
+        } else {
+            stepFinished()
+        }
+    }
+
 
     private func constructTherapySettingsViewModel(therapySettings: TherapySettings) -> TherapySettingsViewModel? {
         return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, prescription: nil, delegate: self)
@@ -320,8 +374,12 @@ extension OnboardingUICoordinator: CompletionDelegate {
             } else {
                 viewController.dismiss(animated: true, completion: nil)
             }
-            if service == nil || service!.isOnboarded {
+            if service == nil {
                 stepFinished()
+            }
+
+            if service!.isOnboarded && viewController == nightscoutOnboardingViewController {
+                checkForAvailableSettingsImport()
             }
         }
     }

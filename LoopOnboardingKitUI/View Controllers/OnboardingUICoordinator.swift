@@ -149,6 +149,8 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             let view = CorrectionRangeInformationView(onExit: { [weak self] in self?.stepFinished() })
             return hostingController(rootView: view)
         case .correctionRangeEditor:
+            // Reset any conflicting entries to allow user to set them to new, non-conflicting values
+            therapySettingsViewModel?.therapySettings.resetEntriesConflictingWithSuspendThreshold()
             let view = CorrectionRangeScheduleEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             return hostingController(rootView: view)
         case .correctionRangePreMealOverrideInfo:
@@ -382,5 +384,29 @@ extension OnboardingUICoordinator: CompletionDelegate {
                 checkForAvailableSettingsImport()
             }
         }
+    }
+}
+
+extension TherapySettings {
+    // This resets any target ranges that conflict with suspend threshold
+    mutating func resetEntriesConflictingWithSuspendThreshold() {
+        guard let suspendThreshold = suspendThreshold?.quantity.doubleValue(for: .milligramsPerDeciliter) else {
+            return
+        }
+
+        if let scheduleLowerBound = glucoseTargetRangeSchedule?.minLowerBound().doubleValue(for: .milligramsPerDeciliter),
+            scheduleLowerBound < suspendThreshold
+        {
+            glucoseTargetRangeSchedule = nil
+        }
+
+        if let premealLowerBound = correctionRangeOverrides?.preMeal?.lowerBound.doubleValue(for: .milligramsPerDeciliter),
+            premealLowerBound < suspendThreshold
+        {
+            correctionRangeOverrides?.ranges[.preMeal] = nil
+        }
+
+        // workout mode obviated in DIY by overrides
+        correctionRangeOverrides?.ranges[.workout] = nil
     }
 }

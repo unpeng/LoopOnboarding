@@ -1,0 +1,41 @@
+//
+//  AppleHealthAuthView.swift
+//  LoopOnboarding
+//
+//  Created by Pete Schwamb on 3/4/22.
+//
+
+import SwiftUI
+import HealthKit
+import LoopKitUI
+
+struct AppleHealthAuthView: View {
+
+    var authorizeHealthStore: (() -> Void)?
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 20) {
+            Spacer()
+            Text(LocalizedString("Apple Health", comment: "Title on AppleHealthAuthView"))
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+            Image(frameworkImage: "AppleHealthLogo", decorative: true)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+            Text(LocalizedString("Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health", comment: "Onboarding, Apple Health Permissions intro paragraph"))
+                .foregroundColor(.secondary)
+            Spacer()
+            Button(action: {
+                authorizeHealthStore?()
+            }) {
+                Text(LocalizedString("Share With Apple Health", comment:"Button title for starting apple health permissions request"))
+                    .actionButtonStyle(.primary)
+            }
+        }
+        .padding()
+        .environment(\.horizontalSizeClass, .compact)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+    }
+}

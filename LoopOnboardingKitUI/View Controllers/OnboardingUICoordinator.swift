@@ -16,6 +16,7 @@ import NightscoutServiceKit
 
 enum OnboardingScreen: CaseIterable {
     case welcome
+    case appleHealth
     case nightscoutChooser
     case importSettings
     case suspendThresholdInfo
@@ -123,6 +124,17 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 }
             })
             return hostingController(rootView: view)
+        case .appleHealth:
+            var view = AppleHealthAuthView()
+            view.authorizeHealthStore = { [weak self] in
+                self?.onboardingProvider.authorizeHealthStore { auth in
+                    DispatchQueue.main.async {
+                        self?.stepFinished()
+                    }
+                }
+            }
+            return hostingController(rootView: view)
+
         case .nightscoutChooser:
             let view = OnboardingChooserView(setupWithNightscout: setupWithNightscout, setupWithoutNightscout: setupWithoutNightscout)
             return hostingController(rootView: view)

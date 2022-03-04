@@ -51,6 +51,7 @@
 		C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
 		C1D936DC27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
 		C1D936DD27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
+		C1D936E027D264D600926313 /* AppleHealthAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingPlugin.swift; sourceTree = "<group>"; };
 		C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSettingsView.swift; sourceTree = "<group>"; };
 		C1D936DA27D166BF00926313 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
+		C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthAuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */,
 				A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */,
 				C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */,
+				C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D936E027D264D600926313 /* AppleHealthAuthView.swift in Sources */,
 				C1D936DC27D166BF00926313 /* HKUnit.swift in Sources */,
 				C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */,
 				A9B3CE8125BCBD85002D9E92 /* Image.swift in Sources */,

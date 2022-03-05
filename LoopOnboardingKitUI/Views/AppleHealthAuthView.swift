@@ -11,7 +11,9 @@ import LoopKitUI
 
 struct AppleHealthAuthView: View {
 
-    var authorizeHealthStore: (() -> Void)?
+    var authorizeHealthStore: ((@escaping () -> Void) -> Void)?
+
+    @State private var processing = false
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -27,11 +29,14 @@ struct AppleHealthAuthView: View {
                 .foregroundColor(.secondary)
             Spacer()
             Button(action: {
-                authorizeHealthStore?()
+                processing = true
+                authorizeHealthStore?() {
+                    processing = false
+                }
             }) {
                 Text(LocalizedString("Share With Apple Health", comment:"Button title for starting apple health permissions request"))
                     .actionButtonStyle(.primary)
-            }
+            }.disabled(processing == true)
         }
         .padding()
         .environment(\.horizontalSizeClass, .compact)

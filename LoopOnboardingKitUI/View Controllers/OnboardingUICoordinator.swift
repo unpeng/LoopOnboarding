@@ -126,9 +126,10 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             return hostingController(rootView: view)
         case .appleHealth:
             var view = AppleHealthAuthView()
-            view.authorizeHealthStore = { [weak self] in
+            view.authorizeHealthStore = { [weak self] (completion) in
                 self?.onboardingProvider.authorizeHealthStore { auth in
                     DispatchQueue.main.async {
+                        completion()
                         self?.stepFinished()
                     }
                 }

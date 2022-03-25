@@ -520,6 +520,15 @@
 				pl,
 				ru,
 				es,
+				da,
+				fi,
+				he,
+				ja,
+				"pt-BR",
+				ro,
+				sv,
+				tr,
+				vi,
 			);
 			mainGroup = A936A88E25BC98DA0085119C;
 			productRefGroup = A936A89925BC98DA0085119C /* Products */;

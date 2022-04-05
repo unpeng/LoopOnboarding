@@ -49,7 +49,6 @@
 		A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; };
 		C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */; };
 		C1C1349A27DD37C80097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */; };
-		C1C1349B27DD37C80097B5AD /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1C134A327DD38310097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */; };
 		C1C134A427DD38310097B5AD /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
@@ -103,7 +102,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C1C1349B27DD37C80097B5AD /* NightscoutServiceKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

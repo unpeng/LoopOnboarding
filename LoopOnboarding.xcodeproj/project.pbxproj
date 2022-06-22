@@ -26,12 +26,6 @@
 		A936A8E025BC99330085119C /* LoopOnboardingKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */; };
 		A936A8E725BC99330085119C /* LoopOnboardingKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8D925BC99320085119C /* LoopOnboardingKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A936A8FB25BC99470085119C /* LoopOnboardingPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9B3CDD225BCB4A8002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */; };
-		A9B3CDDB25BCB4D3002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */; };
-		A9B3CDDD25BCB4D3002D9E92 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */; };
-		A9B3CDF525BCB65D002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDF425BCB65D002D9E92 /* LoopKit.framework */; };
-		A9B3CDF825BCB6E6002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */; };
-		A9B3CDFA25BCB6E6002D9E92 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDF925BCB6E6002D9E92 /* LoopKitUI.framework */; };
 		A9B3CE3B25BCBABB002D9E92 /* OnboardingUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE3A25BCBABB002D9E92 /* OnboardingUICoordinator.swift */; };
 		A9B3CE5625BCBB2B002D9E92 /* OnboardingChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */; };
 		A9B3CE6E25BCBBD7002D9E92 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */; };
@@ -47,6 +41,17 @@
 		A9CE7FEB25BCABE800C04F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */; };
 		A9CE7FF325BCAC1800C04F9B /* LoopOnboardingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */; };
 		A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; };
+		C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */; };
+		C195D259285A669A00B029B7 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D258285A669A00B029B7 /* LoopKitUI.framework */; };
+		C195D25A285A669A00B029B7 /* LoopKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C195D258285A669A00B029B7 /* LoopKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C195D25F285A693A00B029B7 /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */; };
+		C195D260285A693A00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C195D262285A695B00B029B7 /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */; };
+		C195D263285A695B00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
+		C1D936DC27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
+		C1D936DD27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
+		C1D936E027D264D600926313 /* AppleHealthAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C1C1349C27DD37C80097B5AD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C195D25A285A669A00B029B7 /* LoopKitUI.framework in Embed Frameworks */,
+				C195D260285A693A00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1C134A527DD38310097B5AD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C195D263285A695B00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A936A8B925BC99240085119C /* LoopOnboardingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8BB25BC99240085119C /* LoopOnboardingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingKit.h; sourceTree = "<group>"; };
@@ -101,12 +132,6 @@
 		A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingPlugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingPlugin.h; sourceTree = "<group>"; };
 		A936A8FA25BC99470085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B3CDF425BCB65D002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B3CDF925BCB6E6002D9E92 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B3CE3A25BCBABB002D9E92 /* OnboardingUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUICoordinator.swift; sourceTree = "<group>"; };
 		A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingChooserView.swift; sourceTree = "<group>"; };
 		A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -117,6 +142,12 @@
 		A9CE7FE225BCABD500C04F9B /* LoopOnboardingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingUI.swift; sourceTree = "<group>"; };
 		A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingPlugin.swift; sourceTree = "<group>"; };
+		C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSettingsView.swift; sourceTree = "<group>"; };
+		C195D258285A669A00B029B7 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D936DA27D166BF00926313 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
+		C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthAuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +155,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B3CDD225BCB4A8002D9E92 /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B3CDF525BCB65D002D9E92 /* LoopKit.framework in Frameworks */,
 				A936A8C225BC99240085119C /* LoopOnboardingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,9 +170,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B3CDDB25BCB4D3002D9E92 /* LoopKit.framework in Frameworks */,
-				A9B3CDDD25BCB4D3002D9E92 /* LoopKitUI.framework in Frameworks */,
 				A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */,
+				C195D25F285A693A00B029B7 /* NightscoutServiceKit.framework in Frameworks */,
+				C195D259285A669A00B029B7 /* LoopKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,8 +180,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B3CDF825BCB6E6002D9E92 /* LoopKit.framework in Frameworks */,
-				A9B3CDFA25BCB6E6002D9E92 /* LoopKitUI.framework in Frameworks */,
 				A936A8E025BC99330085119C /* LoopOnboardingKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C195D262285A695B00B029B7 /* NightscoutServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +284,8 @@
 			children = (
 				A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */,
 				A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */,
+				C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */,
+				C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CE7D9625BC9BF400C04F9B /* OSLog.swift */,
+				C1D936DA27D166BF00926313 /* HKUnit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,12 +319,9 @@
 		A9CE802625BCAF9800C04F9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */,
-				A9B3CDF925BCB6E6002D9E92 /* LoopKitUI.framework */,
-				A9B3CDF425BCB65D002D9E92 /* LoopKit.framework */,
-				A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */,
-				A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */,
-				A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */,
+				C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */,
+				C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */,
+				C195D258285A669A00B029B7 /* LoopKitUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -373,6 +401,7 @@
 				A936A8D325BC99320085119C /* Sources */,
 				A936A8D425BC99320085119C /* Frameworks */,
 				A936A8D525BC99320085119C /* Resources */,
+				C1C1349C27DD37C80097B5AD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,6 +441,7 @@
 				A936A8F425BC99470085119C /* Frameworks */,
 				A936A8F525BC99470085119C /* Resources */,
 				A9B3CDEF25BCB593002D9E92 /* Copy Frameworks with Carthage */,
+				C1C134A527DD38310097B5AD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -472,6 +502,15 @@
 				pl,
 				ru,
 				es,
+				da,
+				fi,
+				he,
+				ja,
+				"pt-BR",
+				ro,
+				sv,
+				tr,
+				vi,
 			);
 			mainGroup = A936A88E25BC98DA0085119C;
 			productRefGroup = A936A89925BC98DA0085119C /* Products */;
@@ -546,7 +585,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/copy-frameworks.sh\n";
+			shellScript = "\"${SRCROOT}/Scripts/copy-frameworks.sh\"\n";
 		};
 		A9B3CDF625BCB668002D9E92 /* Copy Frameworks with Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -617,6 +656,7 @@
 			files = (
 				A9CE7D9725BC9BF400C04F9B /* OSLog.swift in Sources */,
 				A9CE7D7525BC9B2B00C04F9B /* LocalizedString.swift in Sources */,
+				C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +671,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D936E027D264D600926313 /* AppleHealthAuthView.swift in Sources */,
+				C1D936DC27D166BF00926313 /* HKUnit.swift in Sources */,
+				C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */,
 				A9B3CE8125BCBD85002D9E92 /* Image.swift in Sources */,
 				A9B3CE8F25BCBE7D002D9E92 /* Bundle.swift in Sources */,
 				A9B3CE3B25BCBABB002D9E92 /* OnboardingUICoordinator.swift in Sources */,
@@ -655,6 +698,7 @@
 			files = (
 				A9CE7FF325BCAC1800C04F9B /* LoopOnboardingPlugin.swift in Sources */,
 				A9CE7D9925BC9BF400C04F9B /* OSLog.swift in Sources */,
+				C1D936DD27D166BF00926313 /* HKUnit.swift in Sources */,
 				A9CE7D7725BC9B2B00C04F9B /* LocalizedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,10 +796,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -864,10 +905,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -921,6 +959,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LoopOnboardingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -948,6 +987,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LoopOnboardingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

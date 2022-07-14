@@ -3,29 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		A9CE7F4C25BCA62A00C04F9B /* Cartfile */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = A9CE7F4D25BCA62A00C04F9B /* Build configuration list for PBXAggregateTarget "Cartfile" */;
-			buildPhases = (
-				A9CE7F9C25BCA81800C04F9B /* Carthage Bootstrap */,
-			);
-			dependencies = (
-			);
-			name = Cartfile;
-			productName = Cartfile;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		A936A8C225BC99240085119C /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; };
 		A936A8C925BC99240085119C /* LoopOnboardingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8BB25BC99240085119C /* LoopOnboardingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A936A8E025BC99330085119C /* LoopOnboardingKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */; };
 		A936A8E725BC99330085119C /* LoopOnboardingKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8D925BC99320085119C /* LoopOnboardingKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A936A8FB25BC99470085119C /* LoopOnboardingPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9B3CDD225BCB4A8002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */; };
+		A9B3CDDB25BCB4D3002D9E92 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */; };
+		A9B3CDDD25BCB4D3002D9E92 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */; };
 		A9B3CE3B25BCBABB002D9E92 /* OnboardingUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE3A25BCBABB002D9E92 /* OnboardingUICoordinator.swift */; };
 		A9B3CE5625BCBB2B002D9E92 /* OnboardingChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */; };
 		A9B3CE6E25BCBBD7002D9E92 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */; };
@@ -41,11 +28,14 @@
 		A9CE7FEB25BCABE800C04F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */; };
 		A9CE7FF325BCAC1800C04F9B /* LoopOnboardingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */; };
 		A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; };
+		C1463F772868B51700CFD57F /* LoopOnboardingKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */; platformFilter = ios; };
+		C1463F782868B51700CFD57F /* LoopOnboardingKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1463F7B2868B54200CFD57F /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; platformFilter = ios; };
+		C1463F7C2868B54200CFD57F /* LoopOnboardingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */; };
-		C195D259285A669A00B029B7 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D258285A669A00B029B7 /* LoopKitUI.framework */; };
-		C195D25F285A693A00B029B7 /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */; };
-		C195D262285A695B00B029B7 /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */; };
-		C195D263285A695B00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1C1349A27DD37C80097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */; };
+		C1C134A327DD38310097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */; };
+		C1C134A427DD38310097B5AD /* NightscoutServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
 		C1D936DC27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
 		C1D936DD27D166BF00926313 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D936DA27D166BF00926313 /* HKUnit.swift */; };
@@ -53,20 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A936A8C325BC99240085119C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A936A88F25BC98DA0085119C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A936A8B825BC99240085119C;
-			remoteInfo = LoopOnboardingKit;
-		};
-		A936A8E125BC99330085119C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A936A88F25BC98DA0085119C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A936A8D625BC99320085119C;
-			remoteInfo = LoopOnboardingKitUI;
-		};
 		A9B3CDF025BCB5E1002D9E92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A936A88F25BC98DA0085119C /* Project object */;
@@ -88,16 +64,42 @@
 			remoteGlobalIDString = A936A8B825BC99240085119C;
 			remoteInfo = LoopOnboardingKit;
 		};
+		C1463F792868B51700CFD57F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A936A88F25BC98DA0085119C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A936A8D625BC99320085119C;
+			remoteInfo = LoopOnboardingKitUI;
+		};
+		C1463F7D2868B54200CFD57F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A936A88F25BC98DA0085119C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A936A8B825BC99240085119C;
+			remoteInfo = LoopOnboardingKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C1C1349C27DD37C80097B5AD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1C134A527DD38310097B5AD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C195D263285A695B00B029B7 /* NightscoutServiceKit.framework in Embed Frameworks */,
+				C1463F782868B51700CFD57F /* LoopOnboardingKitUI.framework in Embed Frameworks */,
+				C1C134A427DD38310097B5AD /* NightscoutServiceKit.framework in Embed Frameworks */,
+				C1463F7C2868B54200CFD57F /* LoopOnboardingKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,16 +110,18 @@
 		A936A8B925BC99240085119C /* LoopOnboardingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8BB25BC99240085119C /* LoopOnboardingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingKit.h; sourceTree = "<group>"; };
 		A936A8BC25BC99240085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A936A8C125BC99240085119C /* LoopOnboardingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopOnboardingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A936A8C825BC99240085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8D925BC99320085119C /* LoopOnboardingKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingKitUI.h; sourceTree = "<group>"; };
 		A936A8DA25BC99320085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A936A8DF25BC99330085119C /* LoopOnboardingKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopOnboardingKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A936A8E625BC99330085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingPlugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingPlugin.h; sourceTree = "<group>"; };
 		A936A8FA25BC99470085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3CDF425BCB65D002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3CDF925BCB6E6002D9E92 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B3CE3A25BCBABB002D9E92 /* OnboardingUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUICoordinator.swift; sourceTree = "<group>"; };
 		A9B3CE5525BCBB2B002D9E92 /* OnboardingChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingChooserView.swift; sourceTree = "<group>"; };
 		A9B3CE6D25BCBBD7002D9E92 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -129,9 +133,8 @@
 		A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingPlugin.swift; sourceTree = "<group>"; };
 		C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSettingsView.swift; sourceTree = "<group>"; };
-		C195D258285A669A00B029B7 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D936DA27D166BF00926313 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 		C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthAuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,14 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A936A8BE25BC99240085119C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A936A8C225BC99240085119C /* LoopOnboardingKit.framework in Frameworks */,
+				A9B3CDD225BCB4A8002D9E92 /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,17 +152,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B3CDDB25BCB4D3002D9E92 /* LoopKit.framework in Frameworks */,
+				A9B3CDDD25BCB4D3002D9E92 /* LoopKitUI.framework in Frameworks */,
 				A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */,
-				C195D25F285A693A00B029B7 /* NightscoutServiceKit.framework in Frameworks */,
-				C195D259285A669A00B029B7 /* LoopKitUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A936A8DC25BC99330085119C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A936A8E025BC99330085119C /* LoopOnboardingKitUI.framework in Frameworks */,
+				C1C1349A27DD37C80097B5AD /* NightscoutServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +163,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C195D262285A695B00B029B7 /* NightscoutServiceKit.framework in Frameworks */,
+				C1463F772868B51700CFD57F /* LoopOnboardingKitUI.framework in Frameworks */,
+				C1C134A327DD38310097B5AD /* NightscoutServiceKit.framework in Frameworks */,
+				C1463F7B2868B54200CFD57F /* LoopOnboardingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,9 +178,7 @@
 				A9CE7D7025BC9AF700C04F9B /* Common */,
 				A9CE7D7125BC9AFC00C04F9B /* Extensions */,
 				A936A8BA25BC99240085119C /* LoopOnboardingKit */,
-				A936A8C525BC99240085119C /* LoopOnboardingKitTests */,
 				A936A8D825BC99320085119C /* LoopOnboardingKitUI */,
-				A936A8E325BC99330085119C /* LoopOnboardingKitUITests */,
 				A936A8F825BC99470085119C /* LoopOnboardingPlugin */,
 				A936A89925BC98DA0085119C /* Products */,
 				A9CE802625BCAF9800C04F9B /* Frameworks */,
@@ -200,9 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A936A8B925BC99240085119C /* LoopOnboardingKit.framework */,
-				A936A8C125BC99240085119C /* LoopOnboardingKitTests.xctest */,
 				A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */,
-				A936A8DF25BC99330085119C /* LoopOnboardingKitUITests.xctest */,
 				A936A8F725BC99470085119C /* LoopOnboardingPlugin.loopplugin */,
 			);
 			name = Products;
@@ -217,14 +204,6 @@
 			path = LoopOnboardingKit;
 			sourceTree = "<group>";
 		};
-		A936A8C525BC99240085119C /* LoopOnboardingKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				A936A8C825BC99240085119C /* Info.plist */,
-			);
-			path = LoopOnboardingKitTests;
-			sourceTree = "<group>";
-		};
 		A936A8D825BC99320085119C /* LoopOnboardingKitUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,14 +216,6 @@
 				A9B3CE5425BCBB1A002D9E92 /* Views */,
 			);
 			path = LoopOnboardingKitUI;
-			sourceTree = "<group>";
-		};
-		A936A8E325BC99330085119C /* LoopOnboardingKitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A936A8E625BC99330085119C /* Info.plist */,
-			);
-			path = LoopOnboardingKitUITests;
 			sourceTree = "<group>";
 		};
 		A936A8F825BC99470085119C /* LoopOnboardingPlugin */ = {
@@ -305,9 +276,14 @@
 		A9CE802625BCAF9800C04F9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C195D261285A695B00B029B7 /* NightscoutServiceKit.framework */,
-				C195D25E285A693A00B029B7 /* NightscoutServiceKit.framework */,
-				C195D258285A669A00B029B7 /* LoopKitUI.framework */,
+				C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */,
+				C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */,
+				A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */,
+				A9B3CDF925BCB6E6002D9E92 /* LoopKitUI.framework */,
+				A9B3CDF425BCB65D002D9E92 /* LoopKit.framework */,
+				A9B3CDD925BCB4D3002D9E92 /* LoopKit.framework */,
+				A9B3CDDA25BCB4D3002D9E92 /* LoopKitUI.framework */,
+				A9B3CDD125BCB4A8002D9E92 /* LoopKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -360,25 +336,6 @@
 			productReference = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A936A8C025BC99240085119C /* LoopOnboardingKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A936A8CD25BC99240085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitTests" */;
-			buildPhases = (
-				A936A8BD25BC99240085119C /* Sources */,
-				A936A8BE25BC99240085119C /* Frameworks */,
-				A936A8BF25BC99240085119C /* Resources */,
-				A9B3CDF625BCB668002D9E92 /* Copy Frameworks with Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A936A8C425BC99240085119C /* PBXTargetDependency */,
-			);
-			name = LoopOnboardingKitTests;
-			productName = LoopOnboardingKitTests;
-			productReference = A936A8C125BC99240085119C /* LoopOnboardingKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A936A8D625BC99320085119C /* LoopOnboardingKitUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A936A8E825BC99330085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitUI" */;
@@ -387,6 +344,7 @@
 				A936A8D325BC99320085119C /* Sources */,
 				A936A8D425BC99320085119C /* Frameworks */,
 				A936A8D525BC99320085119C /* Resources */,
+				C1C1349C27DD37C80097B5AD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,25 +356,6 @@
 			productReference = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A936A8DE25BC99330085119C /* LoopOnboardingKitUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A936A8EB25BC99330085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitUITests" */;
-			buildPhases = (
-				A936A8DB25BC99330085119C /* Sources */,
-				A936A8DC25BC99330085119C /* Frameworks */,
-				A936A8DD25BC99330085119C /* Resources */,
-				A9B3CDFB25BCB6F2002D9E92 /* Copy Frameworks with Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A936A8E225BC99330085119C /* PBXTargetDependency */,
-			);
-			name = LoopOnboardingKitUITests;
-			productName = LoopOnboardingKitUITests;
-			productReference = A936A8DF25BC99330085119C /* LoopOnboardingKitUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A936A8F625BC99470085119C /* LoopOnboardingPlugin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A936A8FC25BC99470085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingPlugin" */;
@@ -425,7 +364,6 @@
 				A936A8F325BC99470085119C /* Sources */,
 				A936A8F425BC99470085119C /* Frameworks */,
 				A936A8F525BC99470085119C /* Resources */,
-				A9B3CDEF25BCB593002D9E92 /* Copy Frameworks with Carthage */,
 				C1C134A527DD38310097B5AD /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -433,6 +371,8 @@
 			dependencies = (
 				A9B3CDF125BCB5E1002D9E92 /* PBXTargetDependency */,
 				A9B3CDF325BCB5E1002D9E92 /* PBXTargetDependency */,
+				C1463F7A2868B51700CFD57F /* PBXTargetDependency */,
+				C1463F7E2868B54200CFD57F /* PBXTargetDependency */,
 			);
 			name = LoopOnboardingPlugin;
 			productName = LoopOnboardingPlugin;
@@ -452,22 +392,13 @@
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
 					};
-					A936A8C025BC99240085119C = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					A936A8D625BC99320085119C = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
 					};
-					A936A8DE25BC99330085119C = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					A936A8F625BC99470085119C = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
-					};
-					A9CE7F4C25BCA62A00C04F9B = {
-						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
@@ -503,24 +434,14 @@
 			projectRoot = "";
 			targets = (
 				A936A8B825BC99240085119C /* LoopOnboardingKit */,
-				A936A8C025BC99240085119C /* LoopOnboardingKitTests */,
 				A936A8D625BC99320085119C /* LoopOnboardingKitUI */,
-				A936A8DE25BC99330085119C /* LoopOnboardingKitUITests */,
 				A936A8F625BC99470085119C /* LoopOnboardingPlugin */,
-				A9CE7F4C25BCA62A00C04F9B /* Cartfile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A936A8B725BC99240085119C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A936A8BF25BC99240085119C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -535,13 +456,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A936A8DD25BC99330085119C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A936A8F525BC99470085119C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,89 +465,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A9B3CDEF25BCB593002D9E92 /* Copy Frameworks with Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/LoopOnboardingKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/LoopOnboardingKitUI.framework",
-			);
-			name = "Copy Frameworks with Carthage";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Scripts/copy-frameworks.sh\"\n";
-		};
-		A9B3CDF625BCB668002D9E92 /* Copy Frameworks with Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/LoopKit.framework",
-			);
-			name = "Copy Frameworks with Carthage";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/LoopKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CARTHAGE_BUILD_DIR=\"${SRCROOT}/Carthage/Build\"\nif [ -n \"${IPHONEOS_DEPLOYMENT_TARGET}\" ]; then\n    CARTHAGE_BUILD_DIR=\"${CARTHAGE_BUILD_DIR}/iOS\"\nelif [ -n \"${WATCHOS_DEPLOYMENT_TARGET}\" ]; then\n    CARTHAGE_BUILD_DIR=\"${CARTHAGE_BUILD_DIR}/watchOS\"\nelse\n    echo \"ERROR: Unexpected deployment target type\"\n    exit 1\nfi\n\nfor SCRIPT_INPUT_FILE in ${!SCRIPT_INPUT_FILE_*}; do\n    CARTHAGE_BUILD_FILE=\"${!SCRIPT_INPUT_FILE/${BUILT_PRODUCTS_DIR}/${CARTHAGE_BUILD_DIR}}\"\n    if [ -e \"${CARTHAGE_BUILD_FILE}\" ]; then\n        if [ -e \"${SCRIPT_INPUT_FILE}\" ]; then\n            echo \"ERROR: Duplicate frameworks found at:\"\n            echo \"  ${SCRIPT_INPUT_FILE}\"\n            echo \"  ${CARTHAGE_BUILD_FILE}\"\n            exit 1\n        fi\n        echo \"Substituting \\\"${CARTHAGE_BUILD_FILE}\\\" for \\\"${!SCRIPT_INPUT_FILE}\\\"\"\n        export ${SCRIPT_INPUT_FILE}=\"${CARTHAGE_BUILD_FILE}\"\n    fi\ndone\n\necho \"Copy Frameworks with Carthage\"\ncarthage copy-frameworks\n";
-		};
-		A9B3CDFB25BCB6F2002D9E92 /* Copy Frameworks with Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/LoopKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/LoopKitUI.framework",
-			);
-			name = "Copy Frameworks with Carthage";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/LoopKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/LoopKitUI.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CARTHAGE_BUILD_DIR=\"${SRCROOT}/Carthage/Build\"\nif [ -n \"${IPHONEOS_DEPLOYMENT_TARGET}\" ]; then\n    CARTHAGE_BUILD_DIR=\"${CARTHAGE_BUILD_DIR}/iOS\"\nelif [ -n \"${WATCHOS_DEPLOYMENT_TARGET}\" ]; then\n    CARTHAGE_BUILD_DIR=\"${CARTHAGE_BUILD_DIR}/watchOS\"\nelse\n    echo \"ERROR: Unexpected deployment target type\"\n    exit 1\nfi\n\nfor SCRIPT_INPUT_FILE in ${!SCRIPT_INPUT_FILE_*}; do\n    CARTHAGE_BUILD_FILE=\"${!SCRIPT_INPUT_FILE/${BUILT_PRODUCTS_DIR}/${CARTHAGE_BUILD_DIR}}\"\n    if [ -e \"${CARTHAGE_BUILD_FILE}\" ]; then\n        if [ -e \"${SCRIPT_INPUT_FILE}\" ]; then\n            echo \"ERROR: Duplicate frameworks found at:\"\n            echo \"  ${SCRIPT_INPUT_FILE}\"\n            echo \"  ${CARTHAGE_BUILD_FILE}\"\n            exit 1\n        fi\n        echo \"Substituting \\\"${CARTHAGE_BUILD_FILE}\\\" for \\\"${!SCRIPT_INPUT_FILE}\\\"\"\n        export ${SCRIPT_INPUT_FILE}=\"${CARTHAGE_BUILD_FILE}\"\n    fi\ndone\n\necho \"Copy Frameworks with Carthage\"\ncarthage copy-frameworks\n";
-		};
-		A9CE7F9C25BCA81800C04F9B /* Carthage Bootstrap */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Carthage Bootstrap";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Bootstrapping Carthage dependencies...\"\nunset LLVM_TARGET_TRIPLE_SUFFIX\n\nif ! cmp -s Cartfile.Resolved Carthage/Cartfile.resolved; then\n    time ./Scripts/carthage.sh bootstrap --project-directory \"$SRCROOT\" --platform ios --cache-builds --verbose\n    cp Cartfile.resolved Carthage\nelse\n    echo \"Carthage: not bootstrapping\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A936A8B525BC99240085119C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -642,13 +473,6 @@
 				A9CE7D9725BC9BF400C04F9B /* OSLog.swift in Sources */,
 				A9CE7D7525BC9B2B00C04F9B /* LocalizedString.swift in Sources */,
 				C1D936DB27D166BF00926313 /* HKUnit.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A936A8BD25BC99240085119C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,13 +494,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A936A8DB25BC99330085119C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A936A8F325BC99470085119C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -691,16 +508,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A936A8C425BC99240085119C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A936A8B825BC99240085119C /* LoopOnboardingKit */;
-			targetProxy = A936A8C325BC99240085119C /* PBXContainerItemProxy */;
-		};
-		A936A8E225BC99330085119C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A936A8D625BC99320085119C /* LoopOnboardingKitUI */;
-			targetProxy = A936A8E125BC99330085119C /* PBXContainerItemProxy */;
-		};
 		A9B3CDF125BCB5E1002D9E92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A936A8B825BC99240085119C /* LoopOnboardingKit */;
@@ -715,6 +522,18 @@
 			isa = PBXTargetDependency;
 			target = A936A8B825BC99240085119C /* LoopOnboardingKit */;
 			targetProxy = A9CE802925BCAF9800C04F9B /* PBXContainerItemProxy */;
+		};
+		C1463F7A2868B51700CFD57F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = A936A8D625BC99320085119C /* LoopOnboardingKitUI */;
+			targetProxy = C1463F792868B51700CFD57F /* PBXContainerItemProxy */;
+		};
+		C1463F7E2868B54200CFD57F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = A936A8B825BC99240085119C /* LoopOnboardingKit */;
+			targetProxy = C1463F7D2868B54200CFD57F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -989,40 +808,6 @@
 			};
 			name = Release;
 		};
-		A936A8CE25BC99240085119C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LoopOnboardingKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.LoopOnboardingKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A936A8CF25BC99240085119C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LoopOnboardingKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.LoopOnboardingKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		A936A8E925BC99330085119C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1075,40 +860,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A936A8EC25BC99330085119C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LoopOnboardingKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.LoopOnboardingKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A936A8ED25BC99330085119C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LoopOnboardingKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.LoopOnboardingKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1167,20 +918,6 @@
 			};
 			name = Release;
 		};
-		A9CE7F4E25BCA62A00C04F9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A9CE7F4F25BCA62A00C04F9B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1202,15 +939,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A936A8CD25BC99240085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A936A8CE25BC99240085119C /* Debug */,
-				A936A8CF25BC99240085119C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A936A8E825BC99330085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1220,29 +948,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A936A8EB25BC99330085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingKitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A936A8EC25BC99330085119C /* Debug */,
-				A936A8ED25BC99330085119C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A936A8FC25BC99470085119C /* Build configuration list for PBXNativeTarget "LoopOnboardingPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A936A8FD25BC99470085119C /* Debug */,
 				A936A8FE25BC99470085119C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9CE7F4D25BCA62A00C04F9B /* Build configuration list for PBXAggregateTarget "Cartfile" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9CE7F4E25BCA62A00C04F9B /* Debug */,
-				A9CE7F4F25BCA62A00C04F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

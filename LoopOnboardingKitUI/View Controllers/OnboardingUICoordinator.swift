@@ -318,7 +318,7 @@ extension OnboardingUICoordinator: TherapySettingsViewModelDelegate {
         assertionFailure()
     }
     
-    func saveCompletion(for therapySetting: TherapySetting, therapySettings: TherapySettings) {
+    func saveCompletion(therapySettings: TherapySettings) {
         stepFinished()
     }
     

@@ -41,6 +41,6 @@ struct AppleHealthAuthView: View {
         .padding()
         .environment(\.horizontalSizeClass, .compact)
         .navigationBarTitle("")
-        .navigationBarHidden(true)
+        .navigationBarHidden(false)
     }
 }

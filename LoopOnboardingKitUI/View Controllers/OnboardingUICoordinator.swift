@@ -29,8 +29,6 @@ enum OnboardingScreen: CaseIterable {
     case basalRatesEditor
     case deliveryLimitsInfo
     case deliveryLimitsEditor
-    case insulinModelInfo
-    case insulinModelEditor
     case carbRatioInfo
     case carbRatioEditor
     case insulinSensitivityInfo
@@ -184,12 +182,6 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         case .deliveryLimitsEditor:
             let view = DeliveryLimitsEditor(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!)
             return hostingController(rootView: view)
-        case .insulinModelInfo:
-            let view = InsulinModelInformationView(onExit: { [weak self] in self?.stepFinished() })
-            return hostingController(rootView: view)
-        case .insulinModelEditor:
-            let view = InsulinModelSelection(mode: .acceptanceFlow, therapySettingsViewModel: therapySettingsViewModel!, chartColors: colorPalette.chartColorPalette)
-            return hostingController(rootView: view)
         case .carbRatioInfo:
             let view = CarbRatioInformationView(onExit: { [weak self] in self?.stepFinished() })
             return hostingController(rootView: view)
@@ -303,7 +295,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
 
     private func constructTherapySettingsViewModel(therapySettings: TherapySettings) -> TherapySettingsViewModel? {
-        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, prescription: nil, delegate: self)
+        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, adultChildInsulinModelSelectionEnabled: false, prescription: nil, delegate: self)
     }
 }
 

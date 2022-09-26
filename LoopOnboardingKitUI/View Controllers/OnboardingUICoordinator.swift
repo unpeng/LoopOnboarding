@@ -295,7 +295,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
 
     private func constructTherapySettingsViewModel(therapySettings: TherapySettings) -> TherapySettingsViewModel? {
-        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, adultChildInsulinModelSelectionEnabled: false, prescription: nil, delegate: self)
+        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, prescription: nil, delegate: self)
     }
 }
 

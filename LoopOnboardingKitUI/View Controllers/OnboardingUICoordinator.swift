@@ -360,6 +360,9 @@ extension OnboardingUICoordinator: PumpManagerOnboardingDelegate {
     func pumpManagerOnboarding(didOnboardPumpManager pumpManager: PumpManagerUI) {
         pumpManagerOnboardingDelegate?.pumpManagerOnboarding(didOnboardPumpManager: pumpManager)
     }
+
+    func pumpManagerOnboarding(didPauseOnboarding pumpManager: PumpManagerUI) {
+    }
 }
 
 extension OnboardingUICoordinator: ServiceOnboardingDelegate {

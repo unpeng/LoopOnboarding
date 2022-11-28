@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B67E2D1289B4EDB002D92AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B67E2CF289B4EDB002D92AF /* Localizable.strings */; };
 		A936A8C925BC99240085119C /* LoopOnboardingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8BB25BC99240085119C /* LoopOnboardingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A936A8E725BC99330085119C /* LoopOnboardingKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8D925BC99320085119C /* LoopOnboardingKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A936A8FB25BC99470085119C /* LoopOnboardingPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = A936A8F925BC99470085119C /* LoopOnboardingPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -107,6 +108,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B67E2D0289B4EDB002D92AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A936A8B925BC99240085119C /* LoopOnboardingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoopOnboardingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936A8BB25BC99240085119C /* LoopOnboardingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopOnboardingKit.h; sourceTree = "<group>"; };
 		A936A8BC25BC99240085119C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				A936A8D925BC99320085119C /* LoopOnboardingKitUI.h */,
 				A936A8DA25BC99320085119C /* Info.plist */,
+				4B67E2CF289B4EDB002D92AF /* Localizable.strings */,
 				A9CE7FE225BCABD500C04F9B /* LoopOnboardingUI.swift */,
 				A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */,
 				A9B3CE7F25BCBD75002D9E92 /* Extensions */,
@@ -453,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CE7FEB25BCABE800C04F9B /* Assets.xcassets in Resources */,
+				4B67E2D1289B4EDB002D92AF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +540,17 @@
 			targetProxy = C1463F7D2868B54200CFD57F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B67E2CF289B4EDB002D92AF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B67E2D0289B4EDB002D92AF /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A936A8AA25BC98DA0085119C /* Debug */ = {

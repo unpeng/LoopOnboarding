@@ -295,7 +295,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
 
     private func constructTherapySettingsViewModel(therapySettings: TherapySettings) -> TherapySettingsViewModel? {
-        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, adultChildInsulinModelSelectionEnabled: false, prescription: nil, delegate: self)
+        return TherapySettingsViewModel(therapySettings: therapySettings, pumpSupportedIncrements: nil, sensitivityOverridesEnabled: true, prescription: nil, delegate: self)
     }
 }
 
@@ -310,7 +310,7 @@ extension OnboardingUICoordinator: TherapySettingsViewModelDelegate {
         assertionFailure()
     }
     
-    func saveCompletion(for therapySetting: TherapySetting, therapySettings: TherapySettings) {
+    func saveCompletion(therapySettings: TherapySettings) {
         stepFinished()
     }
     
@@ -359,6 +359,9 @@ extension OnboardingUICoordinator: PumpManagerOnboardingDelegate {
 
     func pumpManagerOnboarding(didOnboardPumpManager pumpManager: PumpManagerUI) {
         pumpManagerOnboardingDelegate?.pumpManagerOnboarding(didOnboardPumpManager: pumpManager)
+    }
+
+    func pumpManagerOnboarding(didPauseOnboarding pumpManager: PumpManagerUI) {
     }
 }
 

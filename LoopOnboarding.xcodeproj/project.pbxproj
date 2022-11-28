@@ -139,6 +139,7 @@
 		C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D936DA27D166BF00926313 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 		C1D936DE27D264D600926313 /* AppleHealthAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthAuthView.swift; sourceTree = "<group>"; };
+		C1FA388F29355E6D00951C0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +547,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4B67E2D0289B4EDB002D92AF /* de */,
+				C1FA388F29355E6D00951C0F /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

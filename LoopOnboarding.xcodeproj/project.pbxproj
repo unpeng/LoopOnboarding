@@ -33,6 +33,7 @@
 		C1463F782868B51700CFD57F /* LoopOnboardingKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8D725BC99320085119C /* LoopOnboardingKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1463F7B2868B54200CFD57F /* LoopOnboardingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; platformFilter = ios; };
 		C1463F7C2868B54200CFD57F /* LoopOnboardingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A936A8B925BC99240085119C /* LoopOnboardingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C14A7E78295E563D00CD87B4 /* LoopSupportKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14A7E77295E563D00CD87B4 /* LoopSupportKitUI.framework */; };
 		C16121EB27C457C400BCDE2A /* ImportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */; };
 		C1C1349A27DD37C80097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */; };
 		C1C134A327DD38310097B5AD /* NightscoutServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */; };
@@ -82,16 +83,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C1C1349C27DD37C80097B5AD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1C134A527DD38310097B5AD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,6 +125,7 @@
 		A9CE7FE225BCABD500C04F9B /* LoopOnboardingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingUI.swift; sourceTree = "<group>"; };
 		A9CE7FEA25BCABE800C04F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CE7FF225BCAC1800C04F9B /* LoopOnboardingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopOnboardingPlugin.swift; sourceTree = "<group>"; };
+		C14A7E77295E563D00CD87B4 /* LoopSupportKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopSupportKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C16121EA27C457C400BCDE2A /* ImportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSettingsView.swift; sourceTree = "<group>"; };
 		C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NightscoutServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14A7E78295E563D00CD87B4 /* LoopSupportKitUI.framework in Frameworks */,
 				A9B3CDDB25BCB4D3002D9E92 /* LoopKit.framework in Frameworks */,
 				A9B3CDDD25BCB4D3002D9E92 /* LoopKitUI.framework in Frameworks */,
 				A9CE802725BCAF9800C04F9B /* LoopOnboardingKit.framework in Frameworks */,
@@ -280,6 +273,7 @@
 		A9CE802625BCAF9800C04F9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C14A7E77295E563D00CD87B4 /* LoopSupportKitUI.framework */,
 				C1C134A227DD38310097B5AD /* NightscoutServiceKit.framework */,
 				C1C1349927DD37C80097B5AD /* NightscoutServiceKit.framework */,
 				A9B3CDF725BCB6E6002D9E92 /* LoopKit.framework */,
@@ -348,7 +342,6 @@
 				A936A8D325BC99320085119C /* Sources */,
 				A936A8D425BC99320085119C /* Frameworks */,
 				A936A8D525BC99320085119C /* Resources */,
-				C1C1349C27DD37C80097B5AD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -646,7 +639,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZED_STRING_MACRO_NAMES = (
 					NSLocalizedString,
 					CFLocalizedString,
@@ -750,7 +743,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZED_STRING_MACRO_NAMES = (
 					NSLocalizedString,
 					CFLocalizedString,

@@ -13,10 +13,12 @@ import SwiftUI
 import LoopKit
 import LoopKitUI
 import NightscoutServiceKit
+import LoopSupportKitUI
 
 enum OnboardingScreen: CaseIterable {
     case welcome
     case appleHealth
+    case usageDataSharingPreference
     case nightscoutChooser
     case importSettings
     case suspendThresholdInfo
@@ -122,6 +124,14 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 }
             })
             return hostingController(rootView: view)
+        case .usageDataSharingPreference:
+            let view = UsageDataPrivacyPreferenceView(
+                preference: LoopKitAnalytics.shared.usageDataPrivacyPreference,
+                onboardingMode: true) { newPreference in
+                    LoopKitAnalytics.shared.updateUsageDataPrivacyPreference(newValue: newPreference)
+                    self.stepFinished()
+                }
+            return hostingController(rootView: view)
         case .appleHealth:
             var view = AppleHealthAuthView()
             view.authorizeHealthStore = { [weak self] (completion) in
@@ -214,8 +224,6 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             .environmentObject(displayGlucoseUnitObservable)
             .environment(\.appName, Bundle.main.bundleDisplayName)
         let hostingController = DismissibleHostingController(rootView: rootView, colorPalette: colorPalette)
-        hostingController.navigationItem.largeTitleDisplayMode = .never
-        hostingController.title = nil
         return hostingController
     }
 
@@ -232,6 +240,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         if let nextScreen = nextScreen {
             navigate(to: nextScreen)
         } else {
+            LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Finished", withProperties: nil, outOfSession: false)
             completionDelegate?.completionNotifyingDidComplete(self)
         }
     }
@@ -251,6 +260,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     }
 
     private func setupWithNightscout() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding With Nightscout", withProperties: nil, outOfSession: false)
         switch onboardingProvider.onboardService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
         case .failure(let error):
             log.debug("Failure to create and setup service with identifier '%{public}@': %{public}@", OnboardingUICoordinator.serviceIdentifier, String(describing: error))
@@ -269,6 +279,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     }
 
     private func setupWithoutNightscout() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Without Nightscout", withProperties: nil, outOfSession: false)
         stepFinished()
     }
 

@@ -126,11 +126,15 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             return hostingController(rootView: view)
         case .usageDataSharingPreference:
             let view = UsageDataPrivacyPreferenceView(
-                preference: LoopKitAnalytics.shared.usageDataPrivacyPreference,
-                onboardingMode: true) { newPreference in
+                preference: LoopKitAnalytics.shared.usageDataPrivacyPreference ?? .shareInstallationStatsOnly,
+                onboardingMode: true,
+                didChoosePreference: { newPreference in
                     LoopKitAnalytics.shared.updateUsageDataPrivacyPreference(newValue: newPreference)
+                },
+                didFinish: {
                     self.stepFinished()
                 }
+            )
             return hostingController(rootView: view)
         case .appleHealth:
             var view = AppleHealthAuthView()

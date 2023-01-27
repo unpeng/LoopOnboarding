@@ -1,0 +1,15 @@
+/* Title on AppleHealthAuthView */
+"Apple Health" = "Apple Health";
+
+/* Onboarding, Apple Health Permissions intro paragraph */
+"Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health" = "Apple Health peut être utilisé pour stocker les données relatives à la glycémie, à l'insuline et aux glucides de Loop.\n\nSi vous l'autorisez, Loop peut également lire les données relatives à la glycémie et à l'insuline des glucomètres et des stylos à insuline compatibles avec Apple Health.";
+
+/* Button title for choosing to import settings from nightscout */
+"Import Saved Settings" = "Importer les paramètres sauvegardés";
+
+/* Button title for starting setup */
+"Let's Go!" = "Allons-y!";
+
+/* Descriptive text on OnboardingChooserView */
+"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Loop peut fonctionner avec Nightscout pour permettre aux soignants distants de voir ce que fait Loop. L'utilisation de Nightscout est totalement facultative avec Loop, et vous pouvez toujours la configurer ultérieurement.";
+

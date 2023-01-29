@@ -122,6 +122,8 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 } else {
                     self.stepFinished()
                 }
+            }, didLongPressOnLogo: {
+                self.mockTherapySettingsAndSkipOnboarding()
             })
             return hostingController(rootView: view)
         case .usageDataSharingPreference:
@@ -244,9 +246,13 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         if let nextScreen = nextScreen {
             navigate(to: nextScreen)
         } else {
-            LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Finished", withProperties: nil, outOfSession: false)
-            completionDelegate?.completionNotifyingDidComplete(self)
+            exitOnboarding()
         }
+    }
+
+    private func exitOnboarding() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Finished", withProperties: nil, outOfSession: false)
+        completionDelegate?.completionNotifyingDidComplete(self)
     }
 
     private func navigate(to screen: OnboardingScreen) {
@@ -280,6 +286,34 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 checkForAvailableSettingsImport()
             }
         }
+    }
+
+    private func mockTherapySettingsAndSkipOnboarding() {
+        onboarding.therapySettings = TherapySettings(
+            glucoseTargetRangeSchedule: GlucoseRangeSchedule(
+                unit: .milligramsPerDeciliter,
+                dailyItems: [.init(startTime: 0, value: DoubleRange(minValue: 105, maxValue: 110))],
+                timeZone: .currentFixed),
+            correctionRangeOverrides: nil,
+            overridePresets: nil,
+            maximumBasalRatePerHour: 6.0,
+            maximumBolus: 8.0,
+            suspendThreshold: GlucoseThreshold(unit: .milligramsPerDeciliter, value: 75),
+            insulinSensitivitySchedule: InsulinSensitivitySchedule(
+                unit: .milligramsPerDeciliter,
+                dailyItems: [.init(startTime: 0, value: 50)],
+                timeZone: .currentFixed),
+            carbRatioSchedule: CarbRatioSchedule(
+                unit: .gram(),
+                dailyItems: [.init(startTime: 0, value: 15)],
+                timeZone: .currentFixed),
+            basalRateSchedule: BasalRateSchedule(
+                dailyItems: [.init(startTime: 0, value: 1.2)],
+                timeZone: .currentFixed),
+            defaultRapidActingModel: ExponentialInsulinModelPreset.rapidActingAdult
+            )
+        self.onboarding.isOnboarded = true
+        exitOnboarding()
     }
 
     private func setupWithoutNightscout() {

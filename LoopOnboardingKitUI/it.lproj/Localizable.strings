@@ -2,16 +2,16 @@
 "Apple Health" = "Apple Salute";
 
 /* Onboarding, Apple Health Permissions intro paragraph */
-"Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health" = "La App Apple Salute può essere utilizzata per memorizzare i dati di glicemia, insulina e carboidrati caricati su di essa da Loop. \n\n Se dai l'autorizzazione a Loop, allora  Loop può anche leggere i dati relativi a glucosio e insulina da glucometri e penne per insulina che supportano Apple Health";
+"Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health" = "Apple Salute può essere utilizzata per memorizzare i dati di glicemia, insulina e carboidrati caricati da Loop. \n\nSe dai l'autorizzazione a Loop, allora Loop potrà anche leggere i dati relativi alle glicemie, insulina da glucometri e penne per insulina che supportano Apple Salute.";
 
 /* Descriptive text on WelcomeView */
-"Before using Loop you need to configure a few settings. These settings should be entered with precision and care; they are a critical part of how Loop determines the right amount of insulin to deliver.\n\nIf you are new to Loop, work with your diabetes support team to determine the settings that work best for you." = "Prima di usare Loop è necessario configurare alcune impostazioni. Queste impostazioni devono essere inserite con precisione e cura;  Esse sono una parte fondamentale del modo in cui Loop determina la giusta quantità di insulina da erogare. \n\n Se sei nuovo un nuovo utente di  Loop, collabora con il tuo gruppo di supporto del tuo diabete per determinare le impostazioni che funzionano meglio per te.";
+"Before using Loop you need to configure a few settings. These settings should be entered with precision and care; they are a critical part of how Loop determines the right amount of insulin to deliver.\n\nIf you are new to Loop, work with your diabetes support team to determine the settings that work best for you." = "Prima di utilizzare Loop è necessario configurare alcune impostazioni. Queste impostazioni devono essere inserite con precisione e attenzione; sono una parte fondamentale del modo in cui Loop determina la giusta quantità d'insulina da erogare.\n\nSe si è alle prime armi con Loop, si consiglia di collaborare con il team di assistenza diabetologica per determinare le impostazioni più adatte alle proprie esigenze.";
 
 /* Button title for skipping setting import from nightscout */
 "Do Not Import Settings" = "Non Importare Impostazioni";
 
 /* Button title for choosing to import settings from nightscout */
-"Import Saved Settings" = "Importare impstazioni conservate";
+"Import Saved Settings" = "Importa impostazioni salvate";
 
 /* Button title for starting setup */
 "Let's Go!" = "Andiamo!";

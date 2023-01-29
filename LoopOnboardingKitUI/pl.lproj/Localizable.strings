@@ -1,0 +1,21 @@
+/* Onboarding, Apple Health Permissions intro paragraph */
+"Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health" = "Apple Zdrowie może służyć do przechowywania danych dotyczących poziomu glukozy we krwi, insuliny i węglowodanów z Loop. \n\nJeśli zezwolisz Loop, Loop może również odczytywać dane dotyczące glukozy i insuliny z glukometrów i wstrzykiwaczy do insuliny obsługujących Apple Zdrowie";
+
+/* Descriptive text on WelcomeView */
+"Before using Loop you need to configure a few settings. These settings should be entered with precision and care; they are a critical part of how Loop determines the right amount of insulin to deliver.\n\nIf you are new to Loop, work with your diabetes support team to determine the settings that work best for you." = "Przed użyciem pętli musisz skonfigurować kilka ustawień. Ustawienia te należy wprowadzać z precyzją i ostrożnością; są one kluczowym elementem sposobu, w jaki Loop określa odpowiednią ilość insuliny do podania. \n\nJeśli dopiero zaczynasz korzystać z Loop, współpracuj z zespołem pomocy diabetologicznej, aby określić ustawienia, które będą dla Ciebie najlepsze.";
+
+/* Button title for starting setup */
+"Let's Go!" = "Zaczynamy!";
+
+/* Descriptive text on OnboardingChooserView */
+"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Loop może współpracować z Nightscout, aby umożliwić zdalnym opiekunom zobaczenie, co robi Loop. Korzystanie z Nightscout jest całkowicie opcjonalne w Loop i zawsze możesz je skonfigurować później.";
+
+/* Button title for choosing onboarding without nightscout */
+"Setup Loop without Nightscout" = "Skonfiguruj Loop bez Nightscout";
+
+/* Button title for starting apple health permissions request */
+"Share With Apple Health" = "Udostępnianie w Apple Zdrowie";
+
+/* Button title for choosing onboarding with nightscout */
+"Use Nightscout with Loop" = "Użyj Nightscout z Loop'em";
+

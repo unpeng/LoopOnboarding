@@ -23,13 +23,13 @@
 "Nightscout" = "Nightscout";
 
 /* Therapy settings save button title */
-"Save Settings" = "Conservare le Impostazioni";
+"Save Settings" = "Salva Impostazioni";
 
 /* Title on ImportSettingsView */
 "Settings Found" = "Impostazioni trovate";
 
 /* Button title for choosing onboarding without nightscout */
-"Setup Loop without Nightscout" = "Configurazione di Loop senza Nightscout";
+"Setup Loop without Nightscout" = "Installa Loop senza Nightscout";
 
 /* Button title for starting apple health permissions request */
 "Share With Apple Health" = "Condividi con Apple Salute";

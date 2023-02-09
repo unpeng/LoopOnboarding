@@ -37,3 +37,9 @@
 /* Button title for choosing onboarding with nightscout */
 "Use Nightscout with Loop" = "Utiliser Nightscout avec Loop";
 
+/* Format string for main guidance text on ImportSettingsView (1: age of settings) */
+"We've detected Loop settings stored in your Nightscout! They were last updated %1$@. Would you like to import them?\n\nAfter importing, you will still need to review the imported settings in the following screens and verify that they are correct." = "Nous avons détecté des paramètres de Loop stockés dans votre Nightscout ! Ils ont été mis à jour pour la dernière fois %1$@. Voulez-vous les importer ?\n\nAprès l'importation, vous devrez revoir les paramètres importés dans les écrans suivants et vérifier qu'ils sont corrects.";
+
+/* Title on WelcomeView */
+"Welcome to Loop" = "Bienvenue à Loop";
+

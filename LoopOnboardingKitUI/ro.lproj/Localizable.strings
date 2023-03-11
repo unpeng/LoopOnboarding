@@ -1,0 +1,30 @@
+/* Button title for starting setup */
+"Let's Go!" = "Să pornim!";
+
+/* Descriptive text on OnboardingChooserView */
+"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Loop poate funcționa cu Nightscout pentru a oferi îngrijitorilor de la distanță o modalitate de a vedea ce face Loop. Utilizarea Nightscout este complet opțională cu Loop și o puteți configura oricând ulterior.";
+
+/* Title on OnboardingChooserView */
+"Nightscout" = "Nightscout";
+
+/* Therapy settings save button title */
+"Save Settings" = "Salvați setările";
+
+/* Title on ImportSettingsView */
+"Settings Found" = "Setări găsite";
+
+/* Button title for choosing onboarding without nightscout */
+"Setup Loop without Nightscout" = "Configurați Loop fără Nightscout";
+
+/* Button title for starting apple health permissions request */
+"Share With Apple Health" = "Partajați cu Apple Health";
+
+/* Button title for choosing onboarding with nightscout */
+"Use Nightscout with Loop" = "Utilizați Nightscout cu Loop";
+
+/* Format string for main guidance text on ImportSettingsView (1: age of settings) */
+"We've detected Loop settings stored in your Nightscout! They were last updated %1$@. Would you like to import them?\n\nAfter importing, you will still need to review the imported settings in the following screens and verify that they are correct." = "Am detectat setările Loop stocate în Nightscout! Acestea au fost actualizate ultima dată %1$@. Doriți să le importați?\n\nDupă import, va trebui totuși să revizuiți setările importate în următoarele ecrane și să verificați dacă sunt corecte.";
+
+/* Title on WelcomeView */
+"Welcome to Loop" = "Bun venit la Loop";
+

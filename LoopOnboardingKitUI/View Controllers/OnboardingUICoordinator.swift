@@ -27,12 +27,12 @@ enum OnboardingScreen: CaseIterable {
     case correctionRangeEditor
     case correctionRangePreMealOverrideInfo
     case correctionRangePreMealOverrideEditor
+    case carbRatioInfo
+    case carbRatioEditor
     case basalRatesInfo
     case basalRatesEditor
     case deliveryLimitsInfo
     case deliveryLimitsEditor
-    case carbRatioInfo
-    case carbRatioEditor
     case insulinSensitivityInfo
     case insulinSensitivityEditor
     case therapySettingsRecap

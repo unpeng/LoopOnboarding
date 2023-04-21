@@ -17,7 +17,7 @@
 "Let's Go!" = "Zaczynamy!";
 
 /* Descriptive text on OnboardingChooserView */
-"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Pętla może współpracować z Nightscout, aby umożliwić zdalny wgląd w pracę pętli. Korzystanie z Nightscout jest całkowicie opcjonalne i zawsze możesz dokonać konfiguracji w późniejszym czasie.";
+"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Loop może współpracować z Nightscout, aby umożliwić zdalny wgląd w pracę pętli. Korzystanie z Nightscout jest całkowicie opcjonalne i zawsze możesz dokonać konfiguracji w późniejszym czasie.";
 
 /* Title on OnboardingChooserView */
 "Nightscout" = "Nightscout";

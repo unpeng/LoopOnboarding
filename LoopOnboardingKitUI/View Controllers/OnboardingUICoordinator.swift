@@ -13,10 +13,12 @@ import SwiftUI
 import LoopKit
 import LoopKitUI
 import NightscoutServiceKit
+import LoopSupportKitUI
 
 enum OnboardingScreen: CaseIterable {
     case welcome
     case appleHealth
+    case usageDataSharingPreference
     case nightscoutChooser
     case importSettings
     case suspendThresholdInfo
@@ -25,12 +27,12 @@ enum OnboardingScreen: CaseIterable {
     case correctionRangeEditor
     case correctionRangePreMealOverrideInfo
     case correctionRangePreMealOverrideEditor
+    case carbRatioInfo
+    case carbRatioEditor
     case basalRatesInfo
     case basalRatesEditor
     case deliveryLimitsInfo
     case deliveryLimitsEditor
-    case carbRatioInfo
-    case carbRatioEditor
     case insulinSensitivityInfo
     case insulinSensitivityEditor
     case therapySettingsRecap
@@ -120,7 +122,21 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
                 } else {
                     self.stepFinished()
                 }
+            }, didLongPressOnLogo: {
+                self.mockTherapySettingsAndSkipOnboarding()
             })
+            return hostingController(rootView: view)
+        case .usageDataSharingPreference:
+            let view = UsageDataPrivacyPreferenceView(
+                preference: LoopKitAnalytics.shared.usageDataPrivacyPreference ?? .shareInstallationStatsOnly,
+                onboardingMode: true,
+                didChoosePreference: { newPreference in
+                    LoopKitAnalytics.shared.updateUsageDataPrivacyPreference(newValue: newPreference)
+                },
+                didFinish: {
+                    self.stepFinished()
+                }
+            )
             return hostingController(rootView: view)
         case .appleHealth:
             var view = AppleHealthAuthView()
@@ -214,8 +230,6 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
             .environmentObject(displayGlucoseUnitObservable)
             .environment(\.appName, Bundle.main.bundleDisplayName)
         let hostingController = DismissibleHostingController(rootView: rootView, colorPalette: colorPalette)
-        hostingController.navigationItem.largeTitleDisplayMode = .never
-        hostingController.title = nil
         return hostingController
     }
 
@@ -232,8 +246,13 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         if let nextScreen = nextScreen {
             navigate(to: nextScreen)
         } else {
-            completionDelegate?.completionNotifyingDidComplete(self)
+            exitOnboarding()
         }
+    }
+
+    private func exitOnboarding() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Finished", withProperties: nil, outOfSession: false)
+        completionDelegate?.completionNotifyingDidComplete(self)
     }
 
     private func navigate(to screen: OnboardingScreen) {
@@ -251,6 +270,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     }
 
     private func setupWithNightscout() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding With Nightscout", withProperties: nil, outOfSession: false)
         switch onboardingProvider.onboardService(withIdentifier: OnboardingUICoordinator.serviceIdentifier) {
         case .failure(let error):
             log.debug("Failure to create and setup service with identifier '%{public}@': %{public}@", OnboardingUICoordinator.serviceIdentifier, String(describing: error))
@@ -268,7 +288,36 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         }
     }
 
+    private func mockTherapySettingsAndSkipOnboarding() {
+        onboarding.therapySettings = TherapySettings(
+            glucoseTargetRangeSchedule: GlucoseRangeSchedule(
+                unit: .milligramsPerDeciliter,
+                dailyItems: [.init(startTime: 0, value: DoubleRange(minValue: 105, maxValue: 110))],
+                timeZone: .currentFixed),
+            correctionRangeOverrides: nil,
+            overridePresets: nil,
+            maximumBasalRatePerHour: 6.0,
+            maximumBolus: 8.0,
+            suspendThreshold: GlucoseThreshold(unit: .milligramsPerDeciliter, value: 75),
+            insulinSensitivitySchedule: InsulinSensitivitySchedule(
+                unit: .milligramsPerDeciliter,
+                dailyItems: [.init(startTime: 0, value: 50)],
+                timeZone: .currentFixed),
+            carbRatioSchedule: CarbRatioSchedule(
+                unit: .gram(),
+                dailyItems: [.init(startTime: 0, value: 15)],
+                timeZone: .currentFixed),
+            basalRateSchedule: BasalRateSchedule(
+                dailyItems: [.init(startTime: 0, value: 1.2)],
+                timeZone: .currentFixed),
+            defaultRapidActingModel: ExponentialInsulinModelPreset.rapidActingAdult
+            )
+        self.onboarding.isOnboarded = true
+        exitOnboarding()
+    }
+
     private func setupWithoutNightscout() {
+        LoopKitAnalytics.shared.recordAnalyticsEvent("Onboarding Without Nightscout", withProperties: nil, outOfSession: false)
         stepFinished()
     }
 

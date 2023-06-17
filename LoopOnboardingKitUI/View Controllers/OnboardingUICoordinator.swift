@@ -64,7 +64,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
     private var importedTherapySettingsDate: Date?
     private var shouldUseImportedSettings: Bool = false
 
-    private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
+    private let displayGlucosePreference: DisplayGlucosePreference
     private let colorPalette: LoopUIColorPalette
 
     private var screenStack = [OnboardingScreen]()
@@ -78,11 +78,11 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
     private static let serviceIdentifier = "NightscoutService"
 
-    init(onboarding: LoopOnboardingUI, onboardingProvider: OnboardingProvider, initialTherapySettings: TherapySettings, displayGlucoseUnitObservable: DisplayGlucoseUnitObservable, colorPalette: LoopUIColorPalette) {
+    init(onboarding: LoopOnboardingUI, onboardingProvider: OnboardingProvider, initialTherapySettings: TherapySettings, displayGlucosePreference: DisplayGlucosePreference, colorPalette: LoopUIColorPalette) {
         self.onboarding = onboarding
         self.onboardingProvider = onboardingProvider
         self.initialTherapySettings = initialTherapySettings
-        self.displayGlucoseUnitObservable = displayGlucoseUnitObservable
+        self.displayGlucosePreference = displayGlucosePreference
         self.colorPalette = colorPalette
         self.service = onboardingProvider.activeServices.first(where: { $0.serviceIdentifier == OnboardingUICoordinator.serviceIdentifier })
 
@@ -227,7 +227,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
 
     private func hostingController<Content: View>(rootView: Content) -> DismissibleHostingController {
         let rootView = rootView
-            .environmentObject(displayGlucoseUnitObservable)
+            .environmentObject(displayGlucosePreference)
             .environment(\.appName, Bundle.main.bundleDisplayName)
         let hostingController = DismissibleHostingController(rootView: rootView, colorPalette: colorPalette)
         return hostingController

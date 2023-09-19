@@ -19,7 +19,7 @@ public final class LoopOnboardingUI: OnboardingUI {
 
     public weak var onboardingDelegate: OnboardingDelegate?
 
-    public let onboardingIdentifier = "LoopOnboarding"
+    public static let pluginIdentifier = "LoopOnboarding"
 
     public var isOnboarded: Bool {
         didSet {

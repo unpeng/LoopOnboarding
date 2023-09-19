@@ -84,7 +84,7 @@ class OnboardingUICoordinator: UINavigationController, CGMManagerOnboarding, Pum
         self.initialTherapySettings = initialTherapySettings
         self.displayGlucosePreference = displayGlucosePreference
         self.colorPalette = colorPalette
-        self.service = onboardingProvider.activeServices.first(where: { $0.serviceIdentifier == OnboardingUICoordinator.serviceIdentifier })
+        self.service = onboardingProvider.activeServices.first(where: { $0.pluginIdentifier == OnboardingUICoordinator.serviceIdentifier })
 
         super.init(navigationBarClass: UINavigationBar.self, toolbarClass: UIToolbar.self)
     }

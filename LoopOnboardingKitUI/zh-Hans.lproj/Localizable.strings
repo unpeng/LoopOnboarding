@@ -1,0 +1,30 @@
+"Apple Health" = "Apple 健康";
+
+"Apple Health can be used to store blood glucose, insulin and carbohydrate data from Loop.\n\nIf you give Loop permission, Loop can also read glucose and insulin data from glucometers and insulin pens that support Apple Health" = "Apple 健康可以用于存储 Loop 的血糖、胰岛素和碳水化合物数据。\n\n如果您给予 Loop 权限，Loop 还可以读取支持 Apple 健康的血糖计和胰岛素笔中的血糖和胰岛素数据。";
+
+"Before using Loop you need to configure a few settings. These settings should be entered with precision and care; they are a critical part of how Loop determines the right amount of insulin to deliver.\n\nIf you are new to Loop, work with your diabetes support team to determine the settings that work best for you." = "在使用 Loop 之前，您需要配置一些设置。这些设置应该精确、小心地输入；它们是 Loop 确定适当的胰岛素输送量的关键部分。\n\n如果您是 Loop 的新用户，请与您的糖尿病支持团队合作，确定最适合您的设置。";
+
+"Do Not Import Settings" = "不导入设置";
+
+"Import Saved Settings" = "导入已保存的设置";
+
+"Let's Go!" = "开始吧！";
+
+"Loop can work with Nightscout to provide remote caregivers a way to see what Loop is doing. Nightscout use is completely optional with Loop, and you can always set it up later." = "Loop 可以与 Nightscout 协作，为远程护理人员提供一种查看 Loop 工作情况的方式。使用 Nightscout 对 Loop 来说完全是可选的，您随时可以设置它。";
+
+"Nightscout" = "Nightscout";
+
+"Save Settings" = "保存设置";
+
+"Settings Found" = "发现设置";
+
+"Setup Loop without Nightscout" = "不使用 Nightscout 设置 Loop";
+
+"Share With Apple Health" = "与 Apple 健康共享";
+
+"Use Nightscout with Loop" = "在 Loop 中使用 Nightscout";
+
+"We've detected Loop settings stored in your Nightscout! They were last updated %1$@. Would you like to import them?\n\nAfter importing, you will still need to review the imported settings in the following screens and verify that they are correct." = "我们检测到您在 Nightscout 中存储了 Loop 设置！它们最近更新于 %1$@。您想导入它们吗？\n\n导入后，您仍需要在以下屏幕中审核导入的设置，并验证它们是否正确。";
+
+"Welcome to Loop" = "欢迎使用 Loop";
+
